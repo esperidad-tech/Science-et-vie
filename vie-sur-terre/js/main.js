@@ -172,6 +172,45 @@
     });
   }
 
+  /* ---------- Naïm et Alicia ---------- */
+  const KIDS = window.RM.kids;
+  const TURN = {
+    naim: ['À toi, Naïm !', 'Bravo, Naïm !'],
+    alicia: ['À toi, Alicia !', 'Bravo, Alicia !'],
+    both: ['À vous deux !', 'Bravo à vous deux !'],
+  };
+  function faces(who, expr) {
+    if (!KIDS) return '';
+    const list = who === 'both' ? ['naim', 'alicia'] : [who];
+    return list.map((n) => `<span class="guide-face">${KIDS.svg(n, { expr })}</span>`).join('');
+  }
+  function setGuide(fig, who, expr, turn) {
+    const g = fig.querySelector('.guide');
+    if (!g) return;
+    if (who) {
+      g.dataset.who = who;
+      g.classList.toggle('guide--both', who === 'both');
+    }
+    const w = g.dataset.who;
+    g.querySelector('.guide-faces').innerHTML = faces(w, expr || 'smile');
+    g.querySelector('.guide-turn').textContent = turn || (TURN[w] || TURN.both)[0];
+  }
+  document.querySelectorAll('.game[data-guide]').forEach((fig) => {
+    const hint = fig.querySelector('.game-hint');
+    if (!hint || !KIDS) return;
+    const who = fig.dataset.guide;
+    const g = document.createElement('div');
+    g.className = 'guide';
+    g.dataset.who = who;
+    g.innerHTML = '<div class="guide-faces" aria-hidden="true"></div><div class="guide-body"><p class="guide-turn"></p></div>';
+    hint.insertAdjacentElement('beforebegin', g);
+    g.querySelector('.guide-body').appendChild(hint);
+    setGuide(fig, who, 'smile');
+  });
+  document.querySelectorAll('[data-kids]').forEach((box) => {
+    box.innerHTML = KIDS ? box.dataset.kids.split(' ').map((n) => `<span class="guide-face">${KIDS.svg(n)}</span>`).join('') : '';
+  });
+
   /* ---------- Mini-jeux ---------- */
   const mounted = [];
 
@@ -218,8 +257,11 @@
         lib.buzz([14, 50, 14]);
         const colors = [api.css('--accent'), api.css('--fg'), api.css('--accent-2') || api.css('--accent')].filter(Boolean);
         lib.celebrate(stage, colors);
+        const gd = fig.querySelector('.guide');
+        if (gd) setGuide(fig, null, 'laugh', (TURN[gd.dataset.who] || TURN.both)[1]);
       },
       isDone: () => g.done,
+      guide(who, expr, turn) { setGuide(fig, who, expr, turn); },
       gesture(type, o) { return lib.showGesture(stage, type, o); },
       css(prop) { return getComputedStyle(fig).getPropertyValue(prop).trim(); },
       style(css) { lib.injectStyle(name, css); },
@@ -233,6 +275,7 @@
         if (hintEl) hintEl.textContent = defaults.hint;
         if (statusEl) statusEl.textContent = defaults.status;
         api.progress(0);
+        if (fig.dataset.guide) setGuide(fig, fig.dataset.guide, 'smile');
         g.resets.forEach((fn) => {
           try { fn(); } catch (err) { console.error(err); }
         });
@@ -261,6 +304,19 @@
     } catch (err) {
       console.error('Jeu « ' + name + ' » :', err);
       if (stage) stage.insertAdjacentHTML('beforeend', '<p class="game-error">Ce jeu n’a pas pu démarrer. Recharge la page pour réessayer.</p>');
+    }
+    /* Naïm ou Alicia s'émerveille quand on touche la scène */
+    if (fig.dataset.guide && name !== 'quiz' && stage) {
+      let wowTimer = 0;
+      stage.addEventListener('pointerdown', () => {
+        if (g.done) return;
+        if (!wowTimer) setGuide(fig, null, 'wow', fig.querySelector('.guide-turn').textContent);
+        clearTimeout(wowTimer);
+        wowTimer = setTimeout(() => {
+          wowTimer = 0;
+          if (!g.done) setGuide(fig, null, 'smile', fig.querySelector('.guide-turn').textContent);
+        }, 900);
+      });
     }
     if (visObserver) visObserver.observe(fig);
     else g.visible = true;

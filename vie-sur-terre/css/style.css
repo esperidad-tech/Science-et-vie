@@ -761,3 +761,104 @@ html.menu-open { overflow: hidden; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Naïm et Alicia : les guides ---------- */
+.kid { display: block; width: 100%; height: auto; }
+.kid .kid-eyes { transform-box: fill-box; transform-origin: center; animation: kid-blink 5.5s infinite; }
+.guide-face:nth-child(2) .kid .kid-eyes { animation-delay: 1.7s; }
+@keyframes kid-blink { 0%, 95%, 100% { transform: scaleY(1); } 97% { transform: scaleY(0.1); } }
+
+.guide {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: start;
+}
+.guide--both { grid-template-columns: 92px minmax(0, 1fr); }
+.guide-faces { display: flex; padding-top: 2px; }
+.guide-face { width: 62px; flex: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.28)); }
+.guide--both .guide-face { width: 56px; }
+.guide--both .guide-face + .guide-face { margin-left: -20px; }
+.guide-body { min-width: 0; display: grid; gap: 4px; }
+.guide-turn {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: "SOFT" 100, "opsz" 24;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--accent-ink);
+}
+.guide .game-hint {
+  position: relative;
+  padding: 10px 14px 11px;
+  border-radius: 6px 20px 18px 18px;
+  background: var(--panel);
+  box-shadow: inset 0 0 0 1px var(--line);
+  min-height: 0;
+}
+.guide .game-hint::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--panel);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+.is-done .guide .game-hint { box-shadow: inset 0 0 0 2px var(--accent); }
+
+/* L'ouverture : les deux explorateurs */
+.hero-duo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 1.2rem;
+}
+.hero-duo-faces { display: flex; flex: none; }
+.hero-duo-faces .guide-face { width: 84px; }
+.hero-duo-faces .guide-face + .guide-face { margin-left: -16px; }
+.hero-duo p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: "SOFT" 100, "opsz" 30;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+/* ---------- Écouter l'histoire ---------- */
+.listen {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  min-height: 46px;
+  padding: 8px 18px 8px 10px;
+  border: 0;
+  border-radius: 24px 26px 23px 25px;
+  background: var(--accent);
+  color: var(--btn-fg);
+  font: 700 1rem/1.1 var(--font-text);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.listen-ic {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.16);
+}
+.listen-ic svg { width: 16px; height: 16px; fill: currentColor; }
+.listen .ic-stop, .listen[aria-pressed="true"] .ic-play { display: none; }
+.listen[aria-pressed="true"] .ic-stop { display: block; }
+.listen-bars { display: none; align-items: flex-end; gap: 2px; height: 14px; }
+.listen[aria-pressed="true"] .listen-bars { display: inline-flex; }
+.listen-bars i { width: 3px; height: 4px; border-radius: 2px; background: currentColor; animation: listen-bar 0.9s ease-in-out infinite; }
+.listen-bars i:nth-child(2) { animation-delay: 0.15s; }
+.listen-bars i:nth-child(3) { animation-delay: 0.3s; }
+@keyframes listen-bar { 0%, 100% { height: 4px; } 50% { height: 14px; } }
+.hero .listen { margin-top: 0; }
