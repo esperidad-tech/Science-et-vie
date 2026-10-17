@@ -862,3 +862,28 @@ html.menu-open { overflow: hidden; }
 .listen-bars i:nth-child(3) { animation-delay: 0.3s; }
 @keyframes listen-bar { 0%, 100% { height: 4px; } 50% { height: 14px; } }
 .hero .listen { margin-top: 0; }
+
+/* Photos des enfants, en forme de galet */
+.kid--photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 48% 52% 46% 54% / 54% 46% 54% 46%;
+  background: var(--kid-ring, #8FD3E8);
+  box-shadow: 0 0 0 3px var(--kid-ring, #8FD3E8), 0 0 0 5px rgba(0, 0, 0, 0.18);
+}
+.kid--photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.guide-face .kid--photo { box-shadow: 0 0 0 2.5px var(--kid-ring, #8FD3E8), 0 0 0 4px rgba(0, 0, 0, 0.2); }
+.hero-duo-faces .guide-face:first-child .kid--photo { transform: rotate(-5deg); }
+.hero-duo-faces .guide-face + .guide-face .kid--photo { transform: rotate(6deg); }
+.hero-duo-faces .guide-face { width: 104px; }
+.hero-duo-faces .guide-face + .guide-face { margin-left: -14px; }

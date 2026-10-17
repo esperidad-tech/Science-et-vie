@@ -109,10 +109,42 @@
       <ellipse cx="60" cy="80.2" rx="5" ry="1.9" fill="#D9707A"/>`;
   }
 
+  /* Photos des enfants : une photo calme et une photo pleine d'énergie pour chacun.
+     Le dossier peut être changé avec window.RM_KIDS_BASE ; l'aperçu Claude les fournit
+     directement dans window.RM_KIDS_SRC. */
+  const PHOTOS = {
+    naim: { smile: 'naim-sourire', hero: 'naim-sourire', wow: 'naim-cri', laugh: 'naim-cri', shout: 'naim-cri' },
+    alicia: { smile: 'alicia-sourire', hero: 'alicia-mer', wow: 'alicia-rire', laugh: 'alicia-rire', shout: 'alicia-rire' },
+  };
+  const BASE = window.RM_KIDS_BASE || 'img/enfants/';
+  function src(file) {
+    const inline = window.RM_KIDS_SRC && window.RM_KIDS_SRC[file];
+    return inline || BASE + file + '.webp';
+  }
+  /* préchargement, pour que les changements d'expression soient instantanés */
+  const preloaded = [];
+  Object.values(PHOTOS).forEach((set) => {
+    new Set(Object.values(set)).forEach((file) => {
+      const im = new Image();
+      im.decoding = 'async';
+      im.src = src(file);
+      preloaded.push(im);
+    });
+  });
+
+  function photo(name, expr) {
+    const k = KIDS[name];
+    const set = PHOTOS[name];
+    const file = set[expr] || set.smile;
+    return `<span class="kid kid--photo kid--${name} kid--${expr}" role="img" aria-label="${k.name}" style="--kid-ring:${k.bg}">`
+      + `<img src="${src(file)}" alt="" decoding="async" draggable="false"></span>`;
+  }
+
   function svg(name, opts = {}) {
     const k = KIDS[name];
     if (!k) return '';
-    const expr = opts.expr || 'smile';
+    if (window.RM_KIDS_DRAWN !== true && PHOTOS[name]) return photo(name, opts.expr || 'smile');
+    const expr = opts.expr === 'hero' ? 'smile' : (opts.expr || 'smile');
     const frame = opts.frame !== false;
     const girl = name === 'alicia';
     const id = 'kid' + (++uid);

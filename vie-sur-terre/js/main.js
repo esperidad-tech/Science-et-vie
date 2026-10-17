@@ -208,7 +208,7 @@
     setGuide(fig, who, 'smile');
   });
   document.querySelectorAll('[data-kids]').forEach((box) => {
-    box.innerHTML = KIDS ? box.dataset.kids.split(' ').map((n) => `<span class="guide-face">${KIDS.svg(n)}</span>`).join('') : '';
+    box.innerHTML = KIDS ? box.dataset.kids.split(' ').map((n) => `<span class="guide-face">${KIDS.svg(n, { expr: 'hero' })}</span>`).join('') : '';
   });
 
   /* ---------- Mini-jeux ---------- */

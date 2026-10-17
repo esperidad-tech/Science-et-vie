@@ -6,6 +6,7 @@
 <title>Science et vie</title>
 <meta name="description" content="Des vidéos de science transformées en jeux à explorer du bout des doigts.">
 <meta name="theme-color" content="#140F2E">
+<meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&display=swap">
@@ -59,6 +60,21 @@
     font-size: 1.25rem;
     line-height: 1.4;
   }
+  .kids { display: flex; align-items: center; margin: -1rem 0 2.2rem; }
+  .kids .kid {
+    width: 88px; height: 88px; object-fit: cover;
+    border-radius: 48% 52% 46% 54% / 54% 46% 54% 46%;
+  }
+  .kid--naim { box-shadow: 0 0 0 3px #8FD3E8; transform: rotate(-5deg); }
+  .kid--alicia { box-shadow: 0 0 0 3px #FFC4A3; transform: rotate(6deg); margin-left: -12px; }
+  .kids p {
+    margin: 0 0 0 16px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-variation-settings: "SOFT" 100, "opsz" 30;
+    font-size: 1.3rem;
+    line-height: 1.2;
+  }
   .themes { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
   .theme {
     display: grid;
@@ -100,6 +116,11 @@
 <main>
   <h1>Science et vie</h1>
   <p class="intro">Des vidéos de science transformées en jeux à explorer du bout des doigts.</p>
+  <div class="kids" aria-label="Pour Naïm et Alicia">
+    <img src="img/enfants/naim-sourire.webp" alt="Naïm" class="kid kid--naim">
+    <img src="img/enfants/alicia-mer.webp" alt="Alicia" class="kid kid--alicia">
+    <p>Pour Naïm et Alicia</p>
+  </div>
   <ul class="themes">
     <li>
       <a class="theme" href="vie-sur-terre/">
