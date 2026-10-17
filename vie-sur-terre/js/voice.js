@@ -79,7 +79,8 @@
     stop();
     if (was) return;
     if (window.RM && window.RM.lib) window.RM.lib.buzz(8);
-    const src = AUDIO[sec.id];
+    const list0 = (window.RM && window.RM.narration && window.RM.narration.audio) || AUDIO;
+    const src = list0[sec.id];
     if (src) {
       const audio = new Audio(src);
       current = { btn, audio };

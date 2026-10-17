@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le thermostat de la Terre</title>
+<meta name="description" content="Pourquoi la Terre n'est ni un glaçon ni une fournaise : le thermostat caché dans les roches, à explorer du bout des doigts. D'après une vidéo de Christophe Pauly.">
+<meta name="theme-color" content="#0E1B2C">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%238BD86A'/%3E%3Cpath d='M32 10a22 22 0 0 1 22 22' stroke='%23FF4E3A' stroke-width='8' fill='none'/%3E%3Cpath d='M10 32a22 22 0 0 1 22-22' stroke='%237FC8F8' stroke-width='8' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<a class="skip" href="#serre">Aller au premier chapitre</a>
+
+<header class="timebar timebar--thermo">
+  <div class="tb-row">
+    <p class="tb-now"><span class="tb-dot" aria-hidden="true"></span><span class="tb-eon">Le thermostat de la Terre</span><span class="tb-ago">Terre : juste bien</span></p>
+    <button class="tb-btn tb-sound" type="button" aria-pressed="false" aria-label="Activer le son" title="Son">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-speaker" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="ic-wave" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="ic-mute" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+    </button>
+    <button class="tb-btn tb-menu" type="button" aria-expanded="false" aria-controls="sommaire" aria-label="Chapitres" title="Chapitres">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
+    </button>
+  </div>
+  <div class="tb-ribbon tb-ribbon--thermo" aria-hidden="true">
+    <span class="tb-zone">glacial</span><span class="tb-zone">juste bien</span><span class="tb-zone">brûlant</span>
+    <span class="tb-marker"></span>
+  </div>
+</header>
+
+<div class="toc" id="sommaire" hidden>
+  <nav class="toc-panel" aria-label="Chapitres">
+    <div class="toc-head">
+      <p class="toc-heading">L’enquête, chapitre par chapitre</p>
+      <button class="toc-close" type="button" aria-label="Fermer le sommaire">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ol></ol>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ Ouverture : la zone habitable ============ -->
+<section class="chapter hero" id="debut" data-chapter data-era="zone" data-thermo="0.5" data-thermo-label="Terre : juste bien" data-title="Ni trop chaud, ni trop froid" data-when="Pourquoi la Terre est habitable">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Le thermostat de la Terre</h1>
+      <p class="hero-sub">Pourquoi notre planète n’est-elle ni un glaçon, ni une fournaise ? La réponse se cache dans les roches.</p>
+      <div class="hero-duo">
+        <div class="hero-duo-faces" data-kids="naim alicia" aria-hidden="true"></div>
+        <p>Une enquête pour Naïm et Alicia</p>
+      </div>
+    </div>
+    <figure class="game" data-game="boucle" data-guide="both" role="group" aria-label="Mini-jeu : placer la planète à la bonne distance du Soleil">
+      <div class="game-stage" style="--ratio: 1 / 1"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Fais glisser la planète vers le Soleil ou loin de lui. Trouve l’endroit où l’eau reste liquide.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <div class="hero-foot">
+      <p class="lede">Depuis plus de quatre milliards d’années, la Terre garde de l’eau liquide à sa surface. Pourtant, le Soleil a changé, les continents ont bougé, et la planète a même gelé presque entièrement. Qu’est-ce qui l’a toujours ramenée, jusqu’ici, vers un climat où la vie est possible ?</p>
+      <p class="credit">D’après la vidéo de Christophe Pauly <cite>We’ve Got the Climate Wrong (Here’s Why Geology Drives Everything)</cite> (2026). <a href="https://www.youtube.com/watch?v=yT-euvETjLM" target="_blank" rel="noopener">Voir la vidéo</a></p>
+      <a class="next" href="#serre">Commencer l’enquête</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ L'effet de serre ============ -->
+<section class="chapter" id="serre" data-chapter data-era="serre" data-thermo="0.5" data-thermo-label="Avec la couverture : 15 °C" data-title="La couverture invisible" data-when="L’effet de serre">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">L’effet de serre</p>
+      <h2>La couverture invisible</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Le Soleil chauffe le sol. Le sol renvoie cette chaleur vers l’espace sous forme de rayons invisibles, les infrarouges. Certains gaz de l’air, comme la vapeur d’eau et le dioxyde de carbone, qu’on écrit CO2, en retiennent une partie : c’est l’effet de serre.</p>
+      <p>Sans lui, la Terre serait une boule gelée, à −18 °C en moyenne. Grâce à lui, il fait environ 15 °C. L’épaisseur de cette couverture décide du climat : trop mince, on gèle ; trop épaisse, on cuit.</p>
+    </div>
+    <figure class="game" data-game="serre" data-guide="naim" role="group" aria-label="Mini-jeu : régler l'effet de serre avec des molécules de CO2">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Ajoute ou enlève du CO2 pour amener la Terre dans la zone verte du thermomètre.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Il y a quatre milliards d’années, le Soleil brillait environ 25 % moins fort qu’aujourd’hui. Pourtant, la Terre avait déjà de l’eau liquide. L’explication la plus probable : sa couverture de gaz était bien plus épaisse. Les chercheurs en discutent encore.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Le cycle carbonate-silicate ============ -->
+<section class="chapter" id="cycle" data-chapter data-era="cycle" data-thermo="0.5" data-thermo-label="Juste bien" data-title="Le voyage du carbone" data-when="Le cycle des roches et du CO2">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Le cycle des roches et du CO2</p>
+      <h2>Le voyage du carbone</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Les volcans soufflent du CO2 dans l’air. La pluie en capture un peu : elle devient très légèrement acide et ronge lentement les roches, comme le granite ou le basalte.</p>
+      <p>Les rivières emportent ce qui s’est dissous jusqu’à l’océan. Là, le plancton et les coquillages s’en servent pour fabriquer leur coquille de calcaire. Quand ils meurent, le calcaire s’entasse au fond : le carbone est enfermé dans la roche. Bien plus tard, le mouvement des plaques entraîne une partie de ces roches en profondeur, et les volcans recrachent le CO2. La boucle est bouclée.</p>
+    </div>
+    <figure class="game" data-game="cycle" data-guide="alicia" role="group" aria-label="Mini-jeu : faire voyager un atome de carbone le long du cycle">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Guide l’atome de carbone : touche l’étape suivante qui s’allume.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les montagnes de calcaire et les falaises de craie sont d’immenses réserves de carbone. Les roches de la Terre en contiennent des dizaines de milliers de fois plus que son air.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Le thermostat ============ -->
+<section class="chapter" id="reglage" data-chapter data-era="reglage" data-thermo="0.5" data-thermo-label="Le thermostat ramène au milieu" data-title="Un thermostat qui se règle tout seul" data-when="Depuis des milliards d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Depuis des milliards d’années</p>
+      <h2>Un thermostat qui se règle tout seul</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Voici le secret. Quand il fait plus chaud, il pleut davantage et les roches s’usent plus vite. Elles avalent alors plus de CO2, la couverture s’amincit, et la Terre se refroidit.</p>
+      <p>Quand il fait plus froid, c’est l’inverse : il pleut moins, les roches avalent moins de CO2, les volcans continuent d’en souffler, et la Terre se réchauffe. Comme le thermostat d’une maison, ce mécanisme ramène toujours la température vers le milieu. Mais il est très lent : il lui faut quelques centaines de milliers d’années.</p>
+    </div>
+    <figure class="game" data-game="reglage" data-guide="naim" role="group" aria-label="Mini-jeu : dérégler le climat et regarder le thermostat le ramener à l'équilibre">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Réveille les volcans pour réchauffer la Terre, puis regarde le thermostat faire son travail.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Ce mécanisme a été décrit en 1981 par trois chercheurs américains, James Walker, Paul Hays et James Kasting. On l’appelle souvent le « thermostat géologique ».</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La tectonique des plaques ============ -->
+<section class="chapter" id="plaques" data-chapter data-era="plaques" data-thermo="0.5" data-thermo-label="Juste bien" data-title="Le tapis roulant des plaques" data-when="En ce moment même">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">En ce moment même</p>
+      <h2>Le tapis roulant des plaques</h2>
+    </header>
+    <div class="chapter-text">
+      <p>La surface de la Terre est découpée en grandes plaques qui glissent de quelques centimètres par an. Quand deux plaques se rencontrent, l’une plonge sous l’autre et entraîne avec elle les roches calcaires du fond de l’océan.</p>
+      <p>En profondeur, la chaleur libère le carbone, que les volcans renvoient dans l’air. Et là où les plaques se cognent, des montagnes se dressent : de la roche toute neuve, prête à être rongée par la pluie. Sans ce tapis roulant, le thermostat finirait par s’arrêter.</p>
+    </div>
+    <figure class="game" data-game="plaques" data-guide="alicia" role="group" aria-label="Mini-jeu : pousser deux plaques l'une contre l'autre">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Pousse la plaque océanique contre le continent.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>La Terre est la seule planète connue où les plaques bougent ainsi. C’est peut-être l’une des raisons pour lesquelles elle est restée habitable si longtemps.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La géographie ============ -->
+<section class="chapter" id="geographie" data-chapter data-era="carte" data-thermo="0.4" data-thermo-label="La Terre se refroidit" data-title="Quand les continents bougent" data-when="Ces 50 derniers millions d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Ces 50 derniers millions d’années</p>
+      <h2>Quand les continents bougent</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Les continents dérivent, et le climat suit. Il y a environ 34 millions d’années, l’Antarctique s’est couvert de glace, surtout parce que le CO2 de l’air avait baissé. Au même moment, l’Amérique du Sud et l’Australie s’en étaient éloignées : un courant marin s’est mis à tourner tout autour du pôle Sud, comme une barrière contre les eaux chaudes, ce qui a pu aider.</p>
+      <p>Autre exemple : quand l’Inde a percuté l’Asie, l’Himalaya s’est dressé. Certains chercheurs pensent que l’usure de ces immenses montagnes, arrosées par la mousson, a avalé beaucoup de CO2 et aidé la Terre à se refroidir lentement.</p>
+    </div>
+    <figure class="game" data-game="geographie" data-guide="naim" role="group" aria-label="Mini-jeu : déplacer les continents pour changer le climat">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Éloigne l’Amérique du Sud de l’Antarctique pour ouvrir un passage à l’océan.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>L’Inde avance encore vers le nord de quelques centimètres par an. L’Himalaya continue donc de se soulever.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Terre boule de neige ============ -->
+<section class="chapter" id="boule" data-chapter data-era="glace" data-thermo="0.03" data-thermo-label="Terre boule de neige : glaciale" data-title="La Terre boule de neige" data-when="Il y a environ 700 millions d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a environ 700 millions d’années</p>
+      <h2>La Terre boule de neige</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Un jour, le climat a basculé dans le froid. La glace s’est étendue des pôles jusque près de l’équateur, peut-être même jusqu’à lui. Comme elle est blanche, elle renvoie la lumière du Soleil vers l’espace : plus il y a de glace, plus il fait froid, et plus la glace avance.</p>
+      <p>Comment la Terre s’en est-elle sortie ? Les volcans, eux, n’ont jamais arrêté de souffler du CO2. Mais sous la glace, plus de pluie pour ronger les roches. Pendant des millions d’années, le CO2 s’est accumulé dans l’air, jusqu’à atteindre des dizaines, voire des centaines de fois le niveau actuel. La couverture est devenue assez épaisse pour tout faire fondre.</p>
+    </div>
+    <figure class="game" data-game="boule" data-guide="alicia" role="group" aria-label="Mini-jeu : sortir la Terre de la glace grâce aux volcans">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Regarde la glace avancer, puis tape les volcans pour qu’ils soufflent du CO2.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Après la fonte, d’épaisses couches de calcaire se sont déposées très vite par-dessus les traces des glaciers. Les géologues les appellent les « carbonates de couverture » et les retrouvent sur presque tous les continents.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Vénus ============ -->
+<section class="chapter" id="venus" data-chapter data-era="venus" data-thermo="1" data-thermo-label="Vénus : environ 465 °C" data-title="Vénus, la jumelle brûlante" data-when="Aujourd’hui, juste à côté de nous">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Aujourd’hui, juste à côté de nous</p>
+      <h2>Vénus, la jumelle brûlante</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Vénus a presque la même taille que la Terre. Mais sa surface atteint environ 465 °C, plus que Mercure, pourtant plus proche du Soleil. Assez pour faire fondre du plomb ! Son air est fait presque entièrement de CO2, si épais qu’au sol, il pèse environ 90 fois plus que le nôtre.</p>
+      <p>Que s’est-il passé ? Plus proche du Soleil, Vénus a perdu presque toute son eau : la vapeur s’est cassée et l’hydrogène s’est échappé dans l’espace. Sans pluie, plus rien pour ronger les roches ; sans plaques qui bougent, pas de recyclage. Le CO2 est resté dans l’air : un thermostat en panne, bloqué sur « brûlant ».</p>
+    </div>
+    <figure class="game" data-game="venus" data-guide="naim" role="group" aria-label="Mini-jeu : comparer la Terre et Vénus">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Touche les roches calcaires de la Terre pour libérer leur carbone dans l’air.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>La Terre a à peu près autant de CO2 que Vénus. Mais chez nous, il est enfermé dans la pierre au lieu de flotter dans l’air.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Aujourd'hui ============ -->
+<section class="chapter" id="aujourdhui" data-chapter data-era="fumee" data-thermo="0.64" data-thermo-label="Ça se réchauffe, très vite" data-title="Trop vite pour le thermostat" data-when="Depuis 200 ans">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Depuis 200 ans</p>
+      <h2>Trop vite pour le thermostat</h2>
+    </header>
+    <div class="chapter-text">
+      <p>En brûlant du charbon, du pétrole et du gaz, nous rendons à l’air, en deux siècles, du carbone que la Terre avait mis des millions d’années à enfermer. Le CO2 de l’air est passé d’environ 280 parties par million avant l’ère industrielle à environ 427 en 2025. Il monte environ 100 fois plus vite qu’à la fin de la dernière glaciation.</p>
+      <p>Le thermostat finira par rattraper ce surplus : les roches vont lentement l’avaler. Mais il lui faudra des centaines de milliers d’années. Il y a 56 millions d’années, après une énorme libération de carbone, la Terre avait mis environ 200 000 ans à revenir à la normale. Elle s’en remettra encore. La vraie question, c’est ce que deviendront ceux qui vivent dessus pendant tout ce temps.</p>
+    </div>
+    <figure class="game" data-game="temps" data-guide="alicia" role="group" aria-label="Mini-jeu : zoomer dans le temps sur la courbe du CO2">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Fais glisser le curseur pour remonter le temps, et regarde le CO2 de l’air.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les bulles d’air piégées dans la glace de l’Antarctique racontent le CO2 des 800 000 dernières années. Avant l’ère industrielle, il n’avait jamais dépassé 300 parties par million.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Quiz ============ -->
+<section class="chapter" id="quiz" data-listen="off" data-chapter data-era="ocean" data-thermo="0.5" data-thermo-label="À vous de jouer" data-title="Es-tu un as du climat ?" data-when="Le quiz">
+  <div class="wrap chapter-grid chapter-grid--single">
+    <header class="chapter-head">
+      <p class="when">Le quiz</p>
+      <h2>Es-tu un as du climat ?</h2>
+    </header>
+    <figure class="game game--free" data-game="quiz" data-guide="both" role="group" aria-label="Quiz de 10 questions">
+      <div class="game-stage"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Dix questions pour voir ce que vous avez retenu.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Recommencer</button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="credits" data-era="zone">
+  <div class="wrap credits-grid">
+    <div>
+      <h2>D’où vient ce site ?</h2>
+      <p>C’est une adaptation libre et ludique de la vidéo de vulgarisation <cite>We’ve Got the Climate Wrong (Here’s Why Geology Drives Everything)</cite>, écrite et racontée par Christophe Pauly (2026).</p>
+      <p><a class="next" href="https://www.youtube.com/watch?v=yT-euvETjLM" target="_blank" rel="noopener">Regarder la vidéo sur YouTube</a></p>
+      <p class="small">Tous les dessins et les jeux sont faits en code, sans aucune image de la vidéo. <a href="../">Retour à Science et vie</a></p>
+    </div>
+    <details class="sources">
+      <summary>Sources des chiffres</summary>
+      <ul class="sources-list">
+        <li><a href="https://science.nasa.gov/climate-change/faq/what-is-the-greenhouse-effect/" target="_blank" rel="noopener">L’effet de serre et les −18 °C</a> (NASA)</li>
+        <li><a href="https://arxiv.org/abs/1204.4449" target="_blank" rel="noopener">Le paradoxe du jeune Soleil faible</a> (Feulner, 2012)</li>
+        <li><a href="https://science.nasa.gov/resource/what-is-the-habitable-zone/" target="_blank" rel="noopener">La zone habitable</a> (NASA)</li>
+        <li><a href="https://science.nasa.gov/earth/earth-observatory/the-carbon-cycle/" target="_blank" rel="noopener">Le cycle du carbone et le thermostat des roches</a> (NASA)</li>
+        <li><a href="https://ntrs.nasa.gov/citations/19820028612" target="_blank" rel="noopener">Le thermostat de Walker, Hays et Kasting</a> (NASA, 1981)</li>
+        <li><a href="https://forecast.uchicago.edu/geocarb/archer.2009.ann_rev_tail.pdf" target="_blank" rel="noopener">La durée de vie du CO2 émis par les humains</a> (Archer et al., 2009)</li>
+        <li><a href="https://meteor.geol.iastate.edu/gccourse/chem/carbon/images/Table1.html" target="_blank" rel="noopener">Le carbone stocké dans les roches et dans l’air</a> (Falkowski et al., 2000)</li>
+        <li><a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html" target="_blank" rel="noopener">Vénus : air, pression et température</a> (NASA)</li>
+        <li><a href="https://www.nature.com/articles/363428a0" target="_blank" rel="noopener">L’eau perdue de Vénus</a> (Nature, 1993)</li>
+        <li><a href="https://pure.psu.edu/en/publications/rapid-cenozoic-glaciation-of-antarctica-induced-by-declining-atmo/" target="_blank" rel="noopener">La glaciation de l’Antarctique et la baisse du CO2</a> (DeConto et Pollard, 2003)</li>
+        <li><a href="https://www.nature.com/articles/359117a0" target="_blank" rel="noopener">L’Himalaya et le refroidissement (hypothèse)</a> (Raymo et Ruddiman, 1992)</li>
+        <li><a href="https://escholarship.org/content/qt4qn645ch/qt4qn645ch.pdf" target="_blank" rel="noopener">La Terre boule de neige</a> (Hoffman et al., 2017)</li>
+        <li><a href="https://gml.noaa.gov/ccgg/trends/" target="_blank" rel="noopener">Le CO2 mesuré à Mauna Loa</a> (NOAA)</li>
+        <li><a href="https://www.ipcc.ch/report/ar6/wg1/chapter/chapter-5/" target="_blank" rel="noopener">Le CO2 des 800 000 dernières années</a> (GIEC, 6e rapport, chapitre 5)</li>
+        <li><a href="https://www.annualreviews.org/doi/10.1146/annurev-earth-040610-133431" target="_blank" rel="noopener">Le réchauffement de la Paléocène-Éocène</a> (McInerney et Wing, 2011)</li>
+        <li><a href="https://climate.copernicus.eu/copernicus-2025-was-third-hottest-year-record" target="_blank" rel="noopener">La température mondiale en 2025</a> (Copernicus)</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<script src="js/lib.js"></script>
+<script src="js/kids.js"></script>
+<script src="js/games/boucle.js"></script>
+<script src="js/games/serre.js"></script>
+<script src="js/games/cycle.js"></script>
+<script src="js/games/reglage.js"></script>
+<script src="js/games/plaques.js"></script>
+<script src="js/games/geographie.js"></script>
+<script src="js/games/boule.js"></script>
+<script src="js/games/venus.js"></script>
+<script src="js/games/temps.js"></script>
+<script src="js/games/quiz.js"></script>
+<script src="js/main.js"></script>
+<script src="js/narration.js"></script>
+<script src="js/voice.js"></script>
+</body>
+</html>

@@ -516,6 +516,7 @@ html.menu-open { overflow: hidden; }
   aspect-ratio: var(--ratio, 4 / 5);
   max-height: min(72svh, 660px);
   overflow: hidden;
+  overflow: clip; /* la scène ne défile jamais, même quand un bouton y prend le focus */
   isolation: isolate;
   background: var(--stage);
   /* forme de galet : chaque coin a son propre rayon */

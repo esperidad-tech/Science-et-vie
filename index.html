@@ -97,6 +97,8 @@
     background: linear-gradient(180deg, #A9E4E7 0 12%, #FF7C8F 12% 55%, #FF6FAE 55% 88%, #E05AB5 88% 100%);
     box-shadow: inset 0 -8px 14px rgba(0, 0, 0, 0.25), inset 0 6px 10px rgba(255, 255, 255, 0.35);
   }
+  .pebble--thermo { background: linear-gradient(100deg, #7FC8F8 0%, #5FB4E8 25%, #8BD86A 48%, #FFB347 75%, #FF4E3A 100%); }
+  .pebble--atome { background: radial-gradient(circle at 50% 50%, #BFE4FF 0 12%, #3FA9FF 13% 30%, #10223D 31% 100%); }
   .pebble.is-empty { background: transparent; box-shadow: inset 0 0 0 2px var(--line); }
   .theme h2 {
     margin: 0 0 0.25rem;
@@ -133,11 +135,21 @@
       </a>
     </li>
     <li>
+      <a class="theme" href="thermostat/">
+        <span class="pebble pebble--thermo" aria-hidden="true"></span>
+        <span>
+          <h2>Le thermostat de la Terre</h2>
+          <p>Pourquoi la Terre n’est ni un glaçon ni une fournaise, en 9 mini-jeux.</p>
+          <p class="from">D’après une vidéo de Christophe Pauly</p>
+        </span>
+      </a>
+    </li>
+    <li>
       <div class="theme is-soon">
         <span class="pebble is-empty" aria-hidden="true"></span>
         <span>
-          <h2>Prochain thème</h2>
-          <p>Une nouvelle vidéo, de nouveaux jeux.</p>
+          <h2>La force de l’atome</h2>
+          <p>L’énergie nucléaire, ses atouts et ses limites. Bientôt ici.</p>
         </span>
       </div>
     </li>

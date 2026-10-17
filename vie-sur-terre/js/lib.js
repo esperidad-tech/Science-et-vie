@@ -34,8 +34,10 @@
   /* Typographie française : espace insécable avant : ; ! ? » et après «. */
   function fr(s) {
     return String(s == null ? '' : s)
-      .replace(/ ([:;!?»])/g, ' $1')
-      .replace(/« /g, '« ');
+      .replace(/ ([:;!?»%])/g, '\u00A0$1')
+      .replace(/« /g, '«\u00A0')
+      .replace(/(\d) (?=\d{3}(?!\d))/g, '$1\u202F')
+      .replace(/(\d) (?=(?:°C|°|km|cm|mm|m³|m|kg|g|ppm|mSv|MW|GW|TWh|kWh)(?![a-zA-Zàâäéèêëîïôöûüç]))/g, '$1\u00A0');
   }
 
   /* Nombres à la française : 1 234,5 */
@@ -120,6 +122,8 @@
       const r = stage.getBoundingClientRect();
       const w = Math.max(1, Math.round(r.width));
       const h = Math.max(1, Math.round(r.height));
+      /* une scène encore en cours de mise en page n'a pas de vraie taille : on attend */
+      if (w < 40 || h < 40) return;
       const dpr = Math.min(maxDpr, window.devicePixelRatio || 1);
       if (w === state.w && h === state.h && dpr === state.dpr) return;
       state.w = w;

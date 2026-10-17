@@ -128,9 +128,13 @@
     },
   ];
 
+  /* Enregistrements de la voix du conteur : audio/<id>.mp3 */
+  const AUDIO = {};
+
   window.RM = window.RM || {};
   window.RM.narration = {
     chapitres: CHAPITRES,
+    audio: AUDIO,
     get(id) {
       const c = CHAPITRES.find((x) => x.id === id);
       return c ? c.texte.join(' ') : '';

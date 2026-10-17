@@ -221,9 +221,10 @@
     const meter = fig.querySelector('.game-meter');
     const resetBtn = fig.querySelector('.game-reset');
     const defaults = {
-      hint: hintEl ? hintEl.textContent : '',
-      status: statusEl ? statusEl.textContent : '',
+      hint: hintEl ? fr(hintEl.textContent) : '',
+      status: statusEl ? fr(statusEl.textContent) : '',
     };
+    if (hintEl) hintEl.textContent = defaults.hint;
     const g = { fig, name, visible: false, loops: [], resets: [], done: false };
 
     const api = {
