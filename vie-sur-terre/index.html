@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roche mère</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="4,5 milliards d'années de dialogue entre les roches et le vivant, à explorer du bout des doigts avec des mini-jeux. D'après le documentaire « Terre, les forces du vivant » (ARTE).">
+<meta name="theme-color" content="#140F2E">
+<meta property="og:title" content="Roche mère">
+<meta property="og:description" content="4,5 milliards d'années de dialogue entre les roches et le vivant, à explorer du bout des doigts avec des mini-jeux.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23F73563'/%3E%3Cpath d='M8 30c10-4 18 4 28 0s16-6 22-2v8c-6-4-12-2-22 2s-18-4-28 0z' fill='%23F9F97F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<a class="skip" href="#lune">Aller au premier chapitre</a>
+
+<header class="timebar">
+  <div class="tb-row">
+    <p class="tb-now"><span class="tb-dot" aria-hidden="true"></span><span class="tb-eon">Hadéen</span><span class="tb-ago">il y a 4,54 milliards d’années</span></p>
+    <button class="tb-btn tb-sound" type="button" aria-pressed="false" aria-label="Activer le son" title="Son">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-speaker" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="ic-wave" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="ic-mute" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+    </button>
+    <button class="tb-btn tb-menu" type="button" aria-expanded="false" aria-controls="sommaire" aria-label="Chapitres" title="Chapitres">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
+    </button>
+  </div>
+  <div class="tb-ribbon" aria-hidden="true">
+    <span class="tb-seg" style="--w: 11.89; --c: #AE027E"></span>
+    <span class="tb-seg" style="--w: 33.04; --c: #F0047F"></span>
+    <span class="tb-seg" style="--w: 43.19; --c: #F73563"></span>
+    <span class="tb-seg" style="--w: 6.32; --c: #99C08D"></span>
+    <span class="tb-seg" style="--w: 4.10; --c: #67C5CA"></span>
+    <span class="tb-seg" style="--w: 1.46; --c: #F2F91D"></span>
+    <span class="tb-marker"></span>
+  </div>
+</header>
+
+<div class="toc" id="sommaire" hidden>
+  <nav class="toc-panel" aria-label="Chapitres">
+    <div class="toc-head">
+      <p class="toc-heading">Le voyage, chapitre par chapitre</p>
+      <button class="toc-close" type="button" aria-label="Fermer le sommaire">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ol></ol>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ Poussières d'étoiles ============ -->
+<section class="chapter hero" id="debut" data-chapter data-era="nuit" data-years="4540000000" data-eon="hadeen" data-title="Poussières d’étoiles" data-when="Il y a 4,5 milliards d’années">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>Roche mère</h1>
+      <p class="hero-sub">4,5 milliards d’années d’histoire entre les pierres et le vivant, à explorer du bout des doigts.</p>
+    </div>
+    <figure class="game" data-game="poussiere" role="group" aria-label="Mini-jeu : former la Terre en faisant se percuter les poussières">
+      <div class="game-stage" style="--ratio: 1 / 1"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Tape dans le nuage : à chaque choc, des poussières se collent à la jeune Terre.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <div class="hero-foot">
+      <p class="lede">Tout commence par un nuage de poussières d’étoiles qui s’agglutinent en une boule de roche brûlante. Comment ces pierres ont-elles fait naître la vie ? Et comment la vie les a-t-elle transformées à son tour ? Chaque chapitre se joue avec les doigts.</p>
+      <p class="credit">D’après le documentaire <cite>Terre, les forces du vivant</cite>, de Matthieu Maillet (ARTE, 2025). <a href="https://www.youtube.com/watch?v=sD-eYTd2fpE" target="_blank" rel="noopener">Voir le film</a></p>
+      <a class="next" href="#lune">Commencer le voyage</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ La Lune ============ -->
+<section class="chapter" id="lune" data-chapter data-era="espace" data-years="4500000000" data-eon="hadeen" data-title="La Lune, née d’un choc" data-when="Il y a environ 4,5 milliards d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a environ 4,5 milliards d’années</p>
+      <h2>La Lune, née d’un choc</h2>
+    </header>
+    <div class="chapter-text">
+      <p>La jeune Terre n’est pas seule sur son orbite. Une autre planète, à peu près de la taille de Mars, fonce vers elle. Les scientifiques l’ont baptisée Théia.</p>
+      <p>Le choc est gigantesque. Des morceaux des deux planètes sont projetés dans l’espace, forment un anneau autour de la Terre, puis s’agglutinent : c’est la naissance de la Lune. C’est le scénario le plus admis aujourd’hui.</p>
+    </div>
+    <figure class="game" data-game="theia" role="group" aria-label="Mini-jeu : lancer Théia sur la Terre pour former la Lune">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Tire Théia vers l’arrière, vise la Terre, puis lâche.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>La Lune s’éloigne toujours de la Terre, d’environ 3,8 centimètres par an. C’est à peu près la vitesse à laquelle poussent tes ongles.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Refroidir, puis pleuvoir ============ -->
+<section class="chapter" id="pluie" data-chapter data-era="magma" data-years="4400000000" data-eon="hadeen" data-title="Refroidir, puis pleuvoir" data-when="Pendant environ 300 millions d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Pendant environ 300 millions d’années</p>
+      <h2>Refroidir, puis pleuvoir</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Après le choc, la surface de la Terre est un océan de lave. Il lui faut quelque 300 millions d’années pour refroidir et se couvrir d’une croûte de roche.</p>
+      <p>Les volcans rejettent de la vapeur d’eau. Quand l’air devient assez frais, cette vapeur retombe en pluies diluviennes. Une partie de l’eau a aussi pu arriver avec des météorites. Peu à peu, les premiers océans se remplissent.</p>
+    </div>
+    <figure class="game" data-game="magma" role="group" aria-label="Mini-jeu : refroidir la lave puis faire pleuvoir">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Frotte la lave avec ton doigt pour la refroidir.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les plus vieux morceaux de Terre connus sont de minuscules cristaux de zircon trouvés en Australie. Ils ont environ 4,4 milliards d’années, et leur chimie suggère que de l’eau liquide existait déjà.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La recette de la vie ============ -->
+<section class="chapter" id="recette" data-chapter data-era="abysse" data-years="3800000000" data-eon="archeen" data-title="La recette de la vie" data-when="Il y a plus de 3,5 milliards d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a plus de 3,5 milliards d’années</p>
+      <h2>La recette de la vie</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Chaleur, eau liquide et minéraux : c’est de la rencontre de ces trois ingrédients que la vie a émergé. Où exactement, et comment ? C’est encore l’une des grandes énigmes de la science.</p>
+      <p>Les plus vieilles traces sûres de vie ont environ 3,5 milliards d’années ; des indices plus anciens, jusqu’à 3,8 milliards d’années, sont encore discutés.</p>
+      <p>Une piste sérieuse mène au fond des océans, vers des sources chaudes où l’eau traverse la roche brûlante et ressort chargée de minéraux. À la surface de ces minéraux, de petites molécules ont pu s’accrocher, se rencontrer et s’assembler en chaînes de plus en plus longues. Un jour, certaines se sont enfermées dans une fine enveloppe : les premières cellules.</p>
+    </div>
+    <figure class="game" data-game="recette" role="group" aria-label="Mini-jeu : réunir chaleur, eau et minéraux pour faire apparaître les premières cellules">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Ajoute les trois ingrédients dans la source chaude.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Les autres pistes</h3>
+      <ul>
+        <li>Des mares chaudes, sur les premières terres émergées, qui s’assèchent et se remplissent tour à tour.</li>
+        <li>Des ingrédients venus de l’espace : on a trouvé des acides aminés, les briques des protéines, dans des météorites.</li>
+        <li>Des argiles et d’autres minéraux qui attirent les molécules et les rangent côte à côte.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Les fabricants d'oxygène ============ -->
+<section class="chapter" id="oxygene" data-chapter data-era="rouille" data-years="2500000000" data-eon="archeen" data-title="Les fabricants d’oxygène" data-when="De 3,5 à 2,4 milliards d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">De 3,5 à 2,4 milliards d’années</p>
+      <h2>Les fabricants d’oxygène</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Pendant très longtemps, la vie reste microscopique. Certains microbes, les cyanobactéries, apprennent à capter la lumière du Soleil pour fabriquer leur nourriture. Ce faisant, ils rejettent un gaz : l’oxygène.</p>
+      <p>Au début, cet oxygène ne reste pas dans l’air. Il fait rouiller le fer dissous dans l’océan. La rouille coule et se dépose au fond, couche après couche. La vie vient de fabriquer une nouvelle roche.</p>
+    </div>
+    <figure class="game" data-game="oxygene" role="group" aria-label="Mini-jeu : faire produire de l'oxygène aux cyanobactéries">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Tape les cyanobactéries pour qu’elles libèrent de l’oxygène.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Ces couches de rouille, appelées formations de fer rubané, fournissent aujourd’hui l’essentiel du minerai de fer. Le fer d’une casserole vient peut-être de microbes vieux de plus de 2 milliards d’années.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Minéraux ============ -->
+<section class="chapter" id="mineraux" data-chapter data-era="ardoise" data-years="2400000000" data-eon="proterozoique" data-title="La vie, créatrice de minéraux" data-when="Depuis 2,4 milliards d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Depuis 2,4 milliards d’années</p>
+      <h2>La vie, créatrice de minéraux</h2>
+    </header>
+    <div class="chapter-text">
+      <p>En changeant l’air, la vie a changé les pierres. L’oxygène a réagi avec les roches et fait apparaître des milliers de minéraux nouveaux, aux couleurs souvent éclatantes.</p>
+      <p>Le minéralogiste américain Robert Hazen, l’un des scientifiques du film, a fait le compte : la vie a joué un rôle dans la formation de près de la moitié des minéraux connus, et environ un tiers n’existeraient pas sans elle.</p>
+    </div>
+    <figure class="game" data-game="mineraux" role="group" aria-label="Mini-jeu : trier des minéraux selon qu'ils doivent ou non leur existence à la vie">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Glisse chaque carte : à droite s’il est né grâce à la vie, à gauche s’il existait déjà avant.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>On connaît aujourd’hui plus de 6 200 espèces de minéraux. Dans les poussières d’étoiles qui ont formé le système solaire, on n’en compte qu’une douzaine.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La vie conquiert la roche ============ -->
+<section class="chapter" id="ile" data-chapter data-era="foret" data-years="470000000" data-eon="paleozoique" data-title="La vie s’attaque à la roche nue" data-when="Il y a environ 470 millions d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a environ 470 millions d’années</p>
+      <h2>La vie s’attaque à la roche nue</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Pendant des milliards d’années, les continents restent des déserts de pierre. Ils naissent et se déplacent sous l’effet de forces immenses : le volcanisme et la tectonique des plaques.</p>
+      <p>Puis la vie sort de l’eau. Les lichens, alliance d’un champignon et d’une algue, s’accrochent à la roche et la rongent avec leurs acides. Ils préparent les premiers sols, où mousses, fougères puis arbres prennent racine. Ce scénario se rejoue encore sur les îles volcaniques, comme Madère.</p>
+    </div>
+    <figure class="game" data-game="ile" role="group" aria-label="Mini-jeu : faire naître une île volcanique puis la couvrir de vie">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Tape le fond de la mer pour faire jaillir un volcan.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les premières plantes terrestres apparaissent il y a environ 470 millions d’années, les premières forêts vers 390 millions d’années. Leurs racines ont creusé des sols profonds et même changé la forme des rivières.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Étretat ============ -->
+<section class="chapter" id="craie" data-chapter data-era="craie" data-years="90000000" data-eon="cretace" data-title="Le plancton bâtisseur de falaises" data-when="Il y a environ 90 millions d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a environ 90 millions d’années</p>
+      <h2>Le plancton bâtisseur de falaises</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Au temps des dinosaures, la Normandie est sous une mer chaude. Dans l’eau flottent des milliards d’algues microscopiques, les coccolithophoridés, couvertes de minuscules plaques de calcaire.</p>
+      <p>Quand elles meurent, ces plaques tombent au fond comme de la neige. Deux centimètres tous les mille ans, ce n’est rien. Mais pendant 20 millions d’années, cela fait des centaines de mètres de craie : la roche blanche des falaises d’Étretat.</p>
+    </div>
+    <figure class="game" data-game="craie" role="group" aria-label="Mini-jeu : faire tomber la neige de plancton, soulever la craie et sculpter une arche">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Garde le doigt sur la mer pour faire tomber la neige de plancton.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les rangées de cailloux noirs dans la craie sont du silex. Il vient surtout de la silice des éponges marines. Bien plus tard, les humains en ont fait leurs premiers outils tranchants.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Les humains et la roche ============ -->
+<section class="chapter" id="ocre" data-chapter data-era="grotte" data-years="30000" data-eon="quaternaire" data-title="Peindre avec la roche" data-when="Il y a des dizaines de milliers d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Il y a des dizaines de milliers d’années</p>
+      <h2>Peindre avec la roche</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Les humains arrivent très tard dans l’histoire : notre espèce n’a qu’environ 300 000 ans. Mais eux aussi dialoguent avec la roche. Ils taillent le silex et broient des pierres pour en faire des couleurs.</p>
+      <p>L’ocre rouge et l’ocre jaune sont des oxydes de fer : de la rouille, en somme, rendue possible par l’oxygène des cyanobactéries. Le blanc vient d’argile, le noir de charbon de bois. En Namibie, des gravures et des peintures sur roche racontent la vie des chasseurs-cueilleurs, et des pierres peintes de la grotte Apollo 11 ont environ 30 000 ans.</p>
+    </div>
+    <figure class="game" data-game="ocre" role="group" aria-label="Atelier : peindre sur une paroi avec des pigments minéraux">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Choisis un pigment et peins sur la paroi avec ton doigt.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Effacer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Chauffée, l’ocre jaune devient rouge : en perdant son eau, le minéral qui la colore se transforme en hématite. Les peintres de la préhistoire savaient sans doute jouer de ce changement de couleur.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Le dialogue continue ============ -->
+<section class="chapter" id="aujourdhui" data-chapter data-era="dune" data-years="0" data-eon="quaternaire" data-title="Le dialogue continue" data-when="Aujourd’hui">
+  <div class="wrap chapter-grid chapter-grid--duo">
+    <header class="chapter-head">
+      <p class="when">Aujourd’hui</p>
+      <h2>Le dialogue continue</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Ce lien entre la roche et le vivant n’a jamais cessé. Sur le terrain, les chercheurs du film l’observent à l’œuvre.</p>
+      <p>Sur les côtes rocheuses, certains oursins creusent leur abri dans la pierre avec leurs dents et leurs piquants. Dans le désert du Namib, le vent arrache des poussières d’argile et les emporte jusqu’à l’océan, où elles nourrissent le plancton.</p>
+    </div>
+    <div class="duo">
+      <figure class="game" data-game="oursin" role="group" aria-label="Mini-jeu : aider un oursin à creuser la roche">
+        <div class="game-stage" style="--ratio: 1 / 1"></div>
+        <figcaption class="game-bar">
+          <p class="game-hint">Fais tourner ton doigt autour de l’oursin pour qu’il creuse.</p>
+          <p class="game-status" aria-live="polite"></p>
+          <div class="game-foot">
+            <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+            <button class="game-reset" type="button">Rejouer</button>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="game" data-game="namib" role="group" aria-label="Mini-jeu : souffler la poussière du désert vers l'océan">
+        <div class="game-stage" style="--ratio: 1 / 1"></div>
+        <figcaption class="game-bar">
+          <p class="game-hint">Balaye le désert vers l’océan pour lever le vent.</p>
+          <p class="game-status" aria-live="polite"></p>
+          <div class="game-foot">
+            <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+            <button class="game-reset" type="button">Rejouer</button>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Le même échange se joue à l’échelle de la planète : chaque année, les poussières du Sahara traversent l’Atlantique et apportent du phosphore, un engrais naturel, à la forêt amazonienne : à peu près autant que ce que les pluies lui font perdre.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Anthropocène ============ -->
+<section class="chapter" id="anthropocene" data-chapter data-era="beton" data-years="76" data-ago-label="depuis 1950" data-eon="anthropocene" data-title="Des roches fabriquées par les humains" data-when="Depuis le milieu du XXᵉ siècle">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Depuis le milieu du XX<sup>e</sup> siècle</p>
+      <h2>Des roches fabriquées par les humains</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Le charbon, le pétrole et le gaz sont des restes de vie ancienne : forêts et plancton enfouis puis transformés pendant des millions d’années. En les brûlant en deux siècles à peine, nous bouleversons un cycle dont dépendent les écosystèmes.</p>
+      <p>Nous fabriquons aussi nos propres roches. Le béton recouvre villes et routes, et sur certaines plages on trouve des galets mêlés de plastique fondu. Pour les géologues du futur, ce sera la signature de notre époque. Beaucoup l’appellent l’Anthropocène, même si les géologues ont refusé en 2024 d’en faire une époque officielle.</p>
+    </div>
+    <figure class="game" data-game="anthropocene" role="group" aria-label="Mini-jeu : retrouver les roches fabriquées par les humains sur une plage">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Sur cette plage, trouve les 5 roches fabriquées par les humains.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>L’humanité a déjà coulé environ 500 milliards de tonnes de béton : de quoi en étaler un kilo sur chaque mètre carré de la planète.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Horloge ============ -->
+<section class="chapter" id="horloge" data-chapter data-era="nuitbleue" data-years="0" data-ago-label="toute l’histoire" data-eon="quaternaire" data-title="Toute l’histoire en 24 heures" data-when="Récapitulatif">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Récapitulatif</p>
+      <h2>Toute l’histoire en 24 heures</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Imagine que les 4,5 milliards d’années de la Terre tiennent en une seule journée. La Terre naît à minuit pile. Fais tourner l’aiguille pour voir à quelle heure arrive chaque événement.</p>
+    </div>
+    <figure class="game" data-game="horloge" role="group" aria-label="Horloge : l'histoire de la Terre ramenée à une journée">
+      <div class="game-stage" style="--ratio: 1 / 1"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Fais glisser l’aiguille autour du cadran.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Événements découverts" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Remettre à minuit</button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ Quiz ============ -->
+<section class="chapter" id="quiz" data-chapter data-era="ocean" data-years="0" data-ago-label="à toi de jouer" data-eon="quaternaire" data-title="Es-tu incollable ?" data-when="Le quiz">
+  <div class="wrap chapter-grid chapter-grid--single">
+    <header class="chapter-head">
+      <p class="when">Le quiz</p>
+      <h2>Es-tu incollable ?</h2>
+    </header>
+    <figure class="game game--free" data-game="quiz" role="group" aria-label="Quiz de 10 questions">
+      <div class="game-stage"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Dix questions pour voir ce que tu as retenu.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Recommencer</button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="credits" data-era="nuit">
+  <div class="wrap credits-grid">
+    <div>
+      <h2>D’où vient ce site ?</h2>
+      <p>C’est une adaptation libre et ludique du documentaire <cite>Terre, les forces du vivant</cite>, réalisé par Matthieu Maillet, écrit avec Christophe Cousin et raconté par Emmanuelle Béart (ARTE, 2025). On y croise notamment les scientifiques Robert Hazen, Andrew Knoll, Johanna Marin-Carbonne, Heather Viles, Jan Zalasiewicz et Timothy LeCain.</p>
+      <p><a class="next" href="https://www.youtube.com/watch?v=sD-eYTd2fpE" target="_blank" rel="noopener">Regarder le documentaire sur YouTube</a></p>
+      <p class="small">Tous les dessins et les jeux sont faits en code, sans aucune image du film.</p>
+    </div>
+    <details class="sources">
+      <summary>Sources des chiffres</summary>
+      <ul class="sources-list">
+        <li><a href="https://pubs.usgs.gov/gip/geotime/age.html" target="_blank" rel="noopener">Âge de la Terre</a> (USGS)</li>
+        <li><a href="https://science.nasa.gov/moon/formation/" target="_blank" rel="noopener">Naissance de la Lune et son éloignement</a> (NASA)</li>
+        <li><a href="https://www.sci.news/geology/science-jack-hills-zircon-oldest-known-fragment-earth-01779.html" target="_blank" rel="noopener">Les zircons de Jack Hills, plus vieux fragments de Terre</a> (Sci.News)</li>
+        <li><a href="https://unsw.edu.au/newsroom/news/2017/05/oldest-evidence-of-life-on-land-found-in-3-48-billion-year-old-a" target="_blank" rel="noopener">Les stromatolithes du Pilbara, 3,48 milliards d’années</a> (UNSW)</li>
+        <li><a href="https://jpl.nasa.gov/news/rosetta-instrument-reignites-debate-on-earths-oceans" target="_blank" rel="noopener">Le débat sur l’origine de l’eau des océans</a> (NASA JPL)</li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5664559" target="_blank" rel="noopener">Les pistes sur l’origine de la vie</a> (Deamer, 2017)</li>
+        <li><a href="https://www.whoi.edu/oceanus/feature/lost-city-pumps-life-essential-chemicals-at-rates-unseen-at-typical-black-smokers/" target="_blank" rel="noopener">Les sources hydrothermales de Lost City</a> (WHOI)</li>
+        <li><a href="https://museumsvictoria.com.au/article/the-murchison-meteorite/" target="_blank" rel="noopener">La météorite de Murchison et ses acides aminés</a> (Museums Victoria)</li>
+        <li><a href="https://eos.org/articles/timing-of-earths-oxygenation-may-need-a-100-million-year-revision" target="_blank" rel="noopener">La Grande Oxydation</a> (Eos)</li>
+        <li><a href="https://hazen.carnegiescience.edu/sites/hazen.gl.ciw.edu/files/242-Hazen-AmMin-2008.pdf" target="_blank" rel="noopener">L’évolution minérale</a> (Hazen et al., 2008)</li>
+        <li><a href="https://carnegiescience.edu/news/nature-used-57-recipes-create-earths-10500-mineral-kinds" target="_blank" rel="noopener">Le rôle de la vie dans la formation des minéraux</a> (Carnegie Science, 2022)</li>
+        <li><a href="https://earthwise.bgs.ac.uk/index.php/Lithology_of_the_Chalk_Group_-_Flint" target="_blank" rel="noopener">La craie et ses silex</a> (British Geological Survey)</li>
+        <li><a href="https://www.cam.ac.uk/stories/earths-earliest-forest-somerset" target="_blank" rel="noopener">La plus vieille forêt fossile connue</a> (Université de Cambridge, 2024)</li>
+        <li><a href="https://blogs.egu.eu/geolog/2014/01/13/imaggeo-on-mondays-long-live-the-lichen/" target="_blank" rel="noopener">Les lichens qui altèrent la lave</a> (EGU)</li>
+        <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0191278" target="_blank" rel="noopener">Les oursins qui creusent la roche</a> (PLoS ONE, 2018)</li>
+        <li><a href="https://agris.fao.org/search/en/records/65deffe70f3e94b9e5d3dc56" target="_blank" rel="noopener">Les poussières du Namib et le plancton</a> (Dansie et al., 2022)</li>
+        <li><a href="https://www.nasa.gov/missions/calipso/nasa-satellite-reveals-how-much-saharan-dust-feeds-amazons-plants" target="_blank" rel="noopener">Les poussières du Sahara qui nourrissent l’Amazonie</a> (NASA)</li>
+        <li><a href="https://whc.unesco.org/en/list/1255" target="_blank" rel="noopener">Twyfelfontein, art rupestre de Namibie</a> (UNESCO)</li>
+        <li><a href="https://www.geosociety.org/gsatoday/archive/24/6/article/i1052-5173-24-6-4.htm" target="_blank" rel="noopener">Le plastiglomérat</a> (GSA Today, 2014)</li>
+        <li><a href="https://dukespace.lib.duke.edu/server/api/core/bitstreams/9b8a766b-55f1-4357-82ac-c294f24da626/content" target="_blank" rel="noopener">Le béton et les autres marqueurs de l’Anthropocène</a> (Waters et al., 2016)</li>
+        <li><a href="https://www.iugs.org/_files/ugd/f1fc07_23c6f9e723bc47b9b5fdcd300f806f25.pdf" target="_blank" rel="noopener">Le vote de 2024 sur l’Anthropocène</a> (IUGS)</li>
+        <li><a href="https://english.nigpas.cas.cn/new/hs/rp/202401/t20240124_656672.html" target="_blank" rel="noopener">Les premières cellules à noyau, 1,65 milliard d’années</a> (NIGPAS)</li>
+        <li><a href="https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf" target="_blank" rel="noopener">Homo sapiens, environ 300 000 ans</a> (Institut Max-Planck)</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<script src="js/lib.js"></script>
+<script src="js/games/poussiere.js"></script>
+<script src="js/games/theia.js"></script>
+<script src="js/games/magma.js"></script>
+<script src="js/games/recette.js"></script>
+<script src="js/games/oxygene.js"></script>
+<script src="js/games/mineraux.js"></script>
+<script src="js/games/ile.js"></script>
+<script src="js/games/craie.js"></script>
+<script src="js/games/ocre.js"></script>
+<script src="js/games/oursin.js"></script>
+<script src="js/games/namib.js"></script>
+<script src="js/games/anthropocene.js"></script>
+<script src="js/games/horloge.js"></script>
+<script src="js/games/quiz.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
