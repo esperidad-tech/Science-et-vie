@@ -37,7 +37,7 @@
       .replace(/ ([:;!?»%])/g, '\u00A0$1')
       .replace(/« /g, '«\u00A0')
       .replace(/(\d) (?=\d{3}(?!\d))/g, '$1\u202F')
-      .replace(/(\d) (?=(?:°C|°|km|cm|mm|m³|m|kg|g|ppm|mSv|MW|GW|TWh|kWh)(?![a-zA-Zàâäéèêëîïôöûüç]))/g, '$1\u00A0');
+      .replace(/(\d) (?=(?:millions|milliards|million|milliard|°C|°|km|cm|mm|m³|m|kg|g|ppm|mSv|mg|MJ|GJ|MW|GW|TWh|kWh|min|s)(?![a-zA-Zàâäéèêëîïôöûüç]))/g, '$1\u00A0');
   }
 
   /* Nombres à la française : 1 234,5 */
