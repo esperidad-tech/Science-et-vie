@@ -10,8 +10,8 @@
       id: 'debut',
       titre: 'Introduction',
       texte: [
-        'Salut Naïm, salut Alicia ! Bienvenue dans Roche mère.',
-        'Quatre milliards et demi d’années d’histoire entre les pierres et le vivant, à explorer du bout des doigts.',
+        'Salut Naïm, salut Alicia ! Aujourd’hui, une grande question : qui a fabriqué la Terre ?',
+        'Des poussières d’étoiles, des éclairs, des volcans, et les êtres vivants eux-mêmes ! Quatre milliards et demi d’années d’histoire, jusqu’aux dinosaures et jusqu’à nous.',
         'Tout commence par un nuage de poussières d’étoiles qui s’agglutinent en une boule de roche brûlante. Comment ces pierres ont-elles fait naître la vie ? Et comment la vie les a-t-elle transformées à son tour ?',
         'Chaque chapitre se joue avec les doigts. Allez, on y va !',
       ],
@@ -30,10 +30,22 @@
       id: 'pluie',
       titre: 'Refroidir, puis pleuvoir',
       texte: [
-        'Refroidir, puis pleuvoir. Pendant environ trois cents millions d’années.',
-        'Après le choc, la surface de la Terre est un océan de lave. Il lui faut quelque trois cents millions d’années pour refroidir et se couvrir d’une croûte de roche.',
+        'Refroidir, puis pleuvoir. Pendant des millions d’années.',
+        'Après le choc, la surface de la Terre est un océan de lave. Il lui faut des millions d’années pour refroidir et se couvrir d’une croûte de roche.',
         'Les volcans rejettent de la vapeur d’eau. Quand l’air devient assez frais, cette vapeur retombe en pluies diluviennes. Une partie de l’eau a aussi pu arriver avec des météorites. Peu à peu, les premiers océans se remplissent.',
         'Le savais-tu ? Les plus vieux morceaux de Terre connus sont de minuscules cristaux de zircon trouvés en Australie. Ils ont environ quatre virgule quatre milliards d’années, et leur chimie suggère que de l’eau liquide existait déjà.',
+      ],
+    },
+    {
+      id: 'eclairs',
+      titre: 'L’étincelle de la vie',
+      texte: [
+        'L’étincelle de la vie. Il y a environ quatre milliards d’années.',
+        'Sur la jeune Terre, de violents orages grondent au-dessus des océans et des volcans. Les éclairs frappent sans arrêt. Et si leur électricité avait aidé la vie à démarrer ?',
+        'En mille neuf cent cinquante-deux, à l’université de Chicago, aux États-Unis, un étudiant de vingt-deux ans, Stanley Miller, tente l’expérience avec son professeur, Harold Urey, prix Nobel de chimie. Dans des ballons de verre, il enferme de l’eau et des gaz que l’on croyait alors présents sur la jeune Terre : du méthane, de l’ammoniac et de l’hydrogène. Puis il fait jaillir des étincelles, comme de minuscules éclairs, pendant une semaine.',
+        'Résultat : l’eau devient rose, puis rouge foncé. Elle contient des acides aminés, dont certains sont des briques des protéines, présentes chez tous les êtres vivants. Ce n’est pas encore la vie, mais la preuve que certaines de ses pièces peuvent se fabriquer toutes seules, avec de l’eau, des gaz, et de l’électricité.',
+        'Aujourd’hui, les chercheurs pensent que l’air de la jeune Terre contenait surtout du gaz carbonique et de l’azote. Mais près des volcans, dans les nuages de cendres traversés d’éclairs, les bons gaz pouvaient se trouver réunis. L’électricité des éclairs a donc pu aider à fabriquer les premières briques de la vie, avec d’autres sources d’énergie : la lumière du Soleil, la chaleur des sources sous-marines et les chocs de météorites.',
+        'Le savais-tu ? En deux mille huit, des chercheurs ont réexaminé de vieux flacons de Miller. Avec des machines modernes, ils ont trouvé quatorze acides aminés dans ceux de l’expérience célèbre. Et dans ceux d’une autre version, qui imitait un nuage de volcan traversé d’éclairs, il y en avait vingt-deux !',
       ],
     },
     {
@@ -41,7 +53,7 @@
       titre: 'La recette de la vie',
       texte: [
         'La recette de la vie. Il y a plus de trois milliards et demi d’années.',
-        'Chaleur, eau liquide et minéraux : c’est de la rencontre de ces trois ingrédients que la vie a émergé. Où exactement, et comment ? C’est encore l’une des grandes énigmes de la science.',
+        'Des briques, ce n’est pas encore une maison ! Pour les assembler, il faut de la chaleur, de l’eau liquide et des minéraux. C’est de la rencontre de tous ces ingrédients, et peut-être de l’électricité des éclairs, que la vie a émergé. Où exactement, et comment ? C’est encore l’une des grandes énigmes de la science.',
         'Les plus vieilles traces sûres de vie ont environ trois milliards et demi d’années. Des indices plus anciens, jusqu’à trois virgule huit milliards d’années, sont encore discutés.',
         'Une piste sérieuse mène au fond des océans, vers des sources chaudes où l’eau traverse la roche brûlante et ressort chargée de minéraux. À la surface de ces minéraux, de petites molécules ont pu s’accrocher, se rencontrer et s’assembler en chaînes de plus en plus longues. Un jour, certaines se sont enfermées dans une fine enveloppe : les premières cellules.',
         'Il existe d’autres pistes : des mares chaudes qui s’assèchent et se remplissent tour à tour, des ingrédients venus de l’espace, comme les acides aminés trouvés dans des météorites, ou encore des argiles qui attirent les molécules et les rangent côte à côte.',
@@ -75,6 +87,17 @@
         'Pendant des milliards d’années, les continents restent des déserts de pierre. Ils naissent et se déplacent sous l’effet de forces immenses : le volcanisme et la tectonique des plaques.',
         'Puis la vie sort de l’eau. Les lichens, alliance d’un champignon et d’une algue, s’accrochent à la roche et la rongent avec leurs acides. Ils préparent les premiers sols, où mousses, fougères puis arbres prennent racine. Ce scénario se rejoue encore sur les îles volcaniques, comme Madère.',
         'Le savais-tu ? Les premières plantes terrestres apparaissent il y a environ quatre cent soixante-dix millions d’années, les premières forêts vers trois cent quatre-vingt-dix millions d’années. Leurs racines ont creusé des sols profonds et même changé la forme des rivières.',
+      ],
+    },
+    {
+      id: 'dinos',
+      titre: 'Le règne des dinosaures',
+      texte: [
+        'Le règne des dinosaures. De deux cent trente à soixante-six millions d’années.',
+        'Il y a environ deux cent trente millions d’années apparaissent de petits reptiles qui courent sur leurs pattes arrière : les plus anciens dinosaures connus. Avec le temps, certains deviennent des géants plus longs que deux autobus, d’autres se couvrent de plumes.',
+        'Ils vivent plus de cent soixante millions d’années, et règnent sur la terre ferme pendant plus de cent trente. Puis, il y a soixante-six millions d’années, un astéroïde d’une dizaine de kilomètres percute la Terre, au Mexique. Le ciel s’assombrit, le climat se dérègle : les dinosaures disparaissent, petits et grands. Seule une branche survit : les oiseaux !',
+        'Les mammifères, restés petits jusque-là, se diversifient alors et grandissent : peu à peu, ils occupent la place laissée libre. Et nous ? Les humains comme nous, Homo sapiens, n’apparaissent qu’il y a environ trois cent mille ans, en Afrique. Aucun humain n’a jamais croisé de dinosaure géant !',
+        'Le savais-tu ? Le tyrannosaure a vécu plus près de nous dans le temps que du stégosaure ! Environ soixante-six millions d’années nous séparent de lui, alors que plus de soixante-quinze millions d’années le séparaient du stégosaure.',
       ],
     },
     {
@@ -123,7 +146,7 @@
       texte: [
         'Toute l’histoire en vingt-quatre heures.',
         'Imagine que les quatre milliards et demi d’années de la Terre tiennent en une seule journée. La Terre naît à minuit pile. Fais tourner l’aiguille pour voir à quelle heure arrive chaque événement.',
-        'Et à la fin, un petit quiz vous attend, Naïm et Alicia. Bonne chance !',
+        'Et à la fin, un petit quiz vous attend, Naïm, Alicia et Siham. Bonne chance !',
       ],
     },
   ];

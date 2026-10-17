@@ -145,26 +145,39 @@
   const TURN = {
     naim: ['À toi, Naïm !', 'Bravo, Naïm !'],
     alicia: ['À toi, Alicia !', 'Bravo, Alicia !'],
+    siham: ['À toi, Siham !', 'Bravo, Siham !'],
     both: ['À vous deux !', 'Bravo à vous deux !'],
+    all: ['À vous trois !', 'Bravo à vous trois !'],
   };
+  /* who : 'naim', 'alicia', 'siham', 'both' (les deux enfants), 'all' (les trois), ou une liste : 'naim siham' */
+  function whoList(who) {
+    if (who === 'both') return ['naim', 'alicia'];
+    if (who === 'all') return ['naim', 'alicia', 'siham'];
+    return String(who || '').split(/\s+/).filter(Boolean);
+  }
+  function turnFor(who) {
+    if (TURN[who]) return TURN[who];
+    return whoList(who).length >= 3 ? TURN.all : TURN.both;
+  }
   function faces(who, expr) {
     if (!KIDS) return '';
-    const list = who === 'both' ? ['naim', 'alicia'] : [who];
-    return list.map((n) => `<span class="guide-face">${KIDS.svg(n, { expr })}</span>`).join('');
+    return whoList(who).map((n) => `<span class="guide-face">${KIDS.svg(n, { expr })}</span>`).join('');
   }
   function setGuide(fig, who, expr, turn) {
     const g = fig.querySelector('.guide');
     if (!g) return;
     if (who) {
       g.dataset.who = who;
-      g.classList.toggle('guide--both', who === 'both');
+      const n = whoList(who).length;
+      g.classList.toggle('guide--both', n === 2);
+      g.classList.toggle('guide--trio', n >= 3);
     }
     const w = g.dataset.who;
     g.querySelector('.guide-faces').innerHTML = faces(w, expr || 'smile');
     /* sans texte fourni : on garde l'actuel, sauf quand on change de joueur */
     const turnEl = g.querySelector('.guide-turn');
     if (turn) turnEl.textContent = turn;
-    else if (who || !turnEl.textContent) turnEl.textContent = (TURN[w] || TURN.both)[0];
+    else if (who || !turnEl.textContent) turnEl.textContent = turnFor(w)[0];
   }
   document.querySelectorAll('.game[data-guide]').forEach((fig) => {
     const hint = fig.querySelector('.game-hint');
@@ -230,7 +243,7 @@
         const colors = [api.css('--accent'), api.css('--fg'), api.css('--accent-2') || api.css('--accent')].filter(Boolean);
         lib.celebrate(stage, colors);
         const gd = fig.querySelector('.guide');
-        if (gd) setGuide(fig, null, 'laugh', (TURN[gd.dataset.who] || TURN.both)[1]);
+        if (gd) setGuide(fig, null, 'laugh', turnFor(gd.dataset.who)[1]);
       },
       isDone: () => g.done,
       guide(who, expr, turn) { setGuide(fig, who, expr, turn); },

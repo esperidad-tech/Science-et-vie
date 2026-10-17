@@ -142,7 +142,7 @@
 <body>
 <main>
   <h1>Studio du conteur</h1>
-  <p class="intro">Les onze lectures de La force de l’atome, à enregistrer avec ta voix. Une fois installées, Naïm et Alicia t’entendront en touchant « Écouter l’histoire ».</p>
+  <p class="intro">Les onze lectures de « Le nucléaire, c’est dangereux ? », à enregistrer avec ta voix. Une fois installées, Naïm et Alicia t’entendront en touchant « Écouter l’histoire ».</p>
   <ul class="tips">
     <li>Une pièce calme et feutrée, le téléphone à une vingtaine de centimètres.</li>
     <li>Attends une seconde après avoir touché Enregistrer, puis lis tranquillement.</li>
@@ -285,7 +285,7 @@
     try { canShare = files.length > 0 && !!navigator.canShare && navigator.canShare({ files }); } catch (e) { canShare = false; }
     shareBtn.hidden = !canShare;
     shareBtn.textContent = files.length === CH.length ? `Partager les ${CH.length} lectures` : `Partager les ${files.length} lecture${files.length > 1 ? 's' : ''}`;
-    shareBtn.onclick = () => navigator.share({ files, title: 'La force de l’atome : lectures' }).catch(() => {});
+    shareBtn.onclick = () => navigator.share({ files, title: 'Le nucléaire, c’est dangereux ? Lectures' }).catch(() => {});
   }
 
   /* ---------- Enregistrement ---------- */

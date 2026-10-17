@@ -426,6 +426,19 @@ html.menu-open { overflow: hidden; }
   text-shadow: 0 0 18px rgba(63, 169, 255, 0.85), 0 0 46px rgba(63, 169, 255, 0.45);
 }
 
+.hero-logo {
+  display: block;
+  width: clamp(88px, 24vw, 128px);
+  margin: 0 0 0.9rem -4px;
+  transform: rotate(-5deg);
+  filter: drop-shadow(0 12px 22px rgba(63, 169, 255, 0.55));
+  animation: hero-logo-float 5s ease-in-out infinite;
+}
+.hero-logo svg { display: block; width: 100%; height: auto; }
+@keyframes hero-logo-float { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-2deg) translateY(-6px); } }
+@media (prefers-reduced-motion: reduce) { .hero-logo { animation: none; } }
+.hero h1.is-question { font-size: clamp(2.7rem, 11vw, 5.6rem); line-height: 0.92; }
+
 .hero-sub {
   margin: 0.9rem 0 0;
   max-width: 26rem;
@@ -765,6 +778,9 @@ html.menu-open { overflow: hidden; }
 .guide-face { width: 62px; flex: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.28)); }
 .guide--both .guide-face { width: 56px; }
 .guide--both .guide-face + .guide-face { margin-left: -20px; }
+.guide--trio { grid-template-columns: 120px minmax(0, 1fr); }
+.guide--trio .guide-face { width: 50px; }
+.guide--trio .guide-face + .guide-face { margin-left: -15px; }
 .guide-body { min-width: 0; display: grid; gap: 4px; }
 .guide-turn {
   margin: 0;

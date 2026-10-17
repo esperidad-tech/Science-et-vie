@@ -10,8 +10,8 @@
       id: 'debut',
       titre: 'Introduction',
       texte: [
-        'Salut Naïm, salut Alicia ! Aujourd’hui, on mène l’enquête sur le thermostat de la Terre.',
-        'Pourquoi notre planète n’est-elle ni un glaçon, ni une fournaise ? La réponse se cache dans les roches.',
+        'Salut Naïm, salut Alicia ! Aujourd’hui, une enquête de docteur : la Terre a-t-elle de la fièvre ?',
+        'Pourquoi notre planète n’est-elle ni un glaçon, ni une fournaise ? Et pourquoi chauffe-t-elle si vite aujourd’hui ? La réponse se cache dans les roches.',
         'Depuis plus de quatre milliards d’années, la Terre garde de l’eau liquide à sa surface. Pourtant, le Soleil a changé, les continents ont bougé, et la planète a même gelé presque entièrement. Qu’est-ce qui l’a toujours ramenée, jusqu’ici, vers un climat où la vie est possible ?',
         'Pour commencer, place la planète à la bonne distance du Soleil.',
       ],
@@ -94,7 +94,7 @@
         'En brûlant du charbon, du pétrole et du gaz, nous rendons à l’air, en deux siècles, du carbone que la Terre avait mis des millions d’années à enfermer. Le C O deux de l’air est passé d’environ deux cent quatre-vingts parties par million avant l’ère industrielle à environ quatre cent vingt-sept en deux mille vingt-cinq. Il monte environ cent fois plus vite qu’à la fin de la dernière glaciation.',
         'Le thermostat finira par rattraper ce surplus : les roches vont lentement l’avaler. Mais il lui faudra des centaines de milliers d’années. Il y a cinquante-six millions d’années, après une énorme libération de carbone, la Terre avait mis environ deux cent mille ans à revenir à la normale. Elle s’en remettra encore. La vraie question, c’est ce que deviendront ceux qui vivent dessus pendant tout ce temps.',
         'Le savais-tu ? Les bulles d’air piégées dans la glace de l’Antarctique racontent le C O deux des huit cent mille dernières années. Avant l’ère industrielle, il n’avait jamais dépassé trois cents parties par million.',
-        'Et maintenant, Naïm et Alicia, place au quiz !',
+        'Et maintenant, Naïm, Alicia et Siham, place au quiz !',
       ],
     },
   ];

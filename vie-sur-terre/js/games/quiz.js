@@ -1,70 +1,17 @@
-/* Le quiz final : dix questions, une explication après chaque réponse,
-   et un insigne en forme de galet strié aux couleurs des éons. */
+/* Le quiz final : on choisit qui joue (Naïm, Alicia, Siham, seul ou à plusieurs),
+   puis chacun répond à son tour. Les enfants piochent dans les questions « enfants »,
+   Siham dans les questions « adultes ». Après chaque réponse, une explication ;
+   à la fin, un insigne en forme de galet pour chaque joueur.
+   Les questions et les insignes du thème sont dans js/quiz-data.js (window.RM.quizData). */
 (function () {
   'use strict';
   const { lib } = window.RM;
 
-  const QUESTIONS = [
-    {
-      q: 'De quoi la Terre est-elle née ?',
-      a: ['D’un nuage de poussières et de roches', 'D’un morceau arraché au Soleil', 'D’une énorme comète glacée'],
-      why: 'Les poussières se sont agglutinées jusqu’à former une boule de roche brûlante.',
-    },
-    {
-      q: 'Comment la Lune s’est-elle formée, selon le scénario le plus admis ?',
-      a: ['Après un choc géant entre la Terre et une autre planète', 'Elle a été capturée en passant près de la Terre', 'Elle s’est détachée du Soleil'],
-      why: 'Les débris du choc avec Théia se sont rassemblés en orbite.',
-    },
-    {
-      q: 'Quels ingrédients étaient réunis quand la vie est apparue ?',
-      a: ['De la chaleur, de l’eau liquide et des minéraux', 'De la glace, du sel et du vent', 'Du sable, de l’oxygène et de la lumière'],
-      why: 'Il n’y avait presque pas d’oxygène à l’époque. Comment ces ingrédients ont donné la vie reste une énigme.',
-    },
-    {
-      q: 'Qui a rempli l’air d’oxygène ?',
-      a: ['Des microbes : les cyanobactéries', 'Les volcans', 'Les premières forêts'],
-      why: 'Bien avant les plantes, ces microbes faisaient déjà de la photosynthèse.',
-    },
-    {
-      q: 'Au début, où est passé cet oxygène ?',
-      a: ['Il a fait rouiller le fer dissous dans l’océan', 'Il s’est échappé dans l’espace', 'Il a gelé au fond des mers'],
-      why: 'La rouille s’est déposée en couches rouges : les formations de fer rubané.',
-    },
-    {
-      q: 'Grâce à quoi des milliers de minéraux nouveaux sont-ils apparus ?',
-      a: ['À l’oxygène produit par la vie', 'Au froid des glaciations', 'Aux météorites tombées sur Terre'],
-      why: 'L’oxygène a transformé les roches et fait naître malachite, azurite, turquoise et bien d’autres.',
-    },
-    {
-      q: 'De quoi est faite la craie des falaises d’Étretat ?',
-      a: ['De minuscules plaques de plancton', 'De coquilles d’huîtres broyées', 'De lave refroidie'],
-      why: 'Deux centimètres tous les mille ans, pendant 20 millions d’années.',
-    },
-    {
-      q: 'Que font les lichens sur une roche nue ?',
-      a: ['Ils la rongent et préparent un sol', 'Ils la font fondre', 'Ils la transforment en sable de plage'],
-      why: 'Leurs acides attaquent les minéraux : c’est le début d’un sol où d’autres plantes pourront pousser.',
-    },
-    {
-      q: 'D’où vient la couleur de l’ocre rouge des peintures préhistoriques ?',
-      a: ['D’un oxyde de fer, l’hématite', 'Du sang des animaux chassés', 'De pétales de fleurs écrasés'],
-      why: 'C’est une sorte de rouille, rendue possible par l’oxygène.',
-    },
-    {
-      q: 'Si l’histoire de la Terre tenait en 24 heures, quand arriverait notre espèce ?',
-      a: ['Quelques secondes avant minuit', 'Vers midi', 'Vers 20 heures'],
-      why: 'Homo sapiens arriverait à 23 h 59 min 54 s.',
-    },
-  ];
-
-  /* Insignes selon la part de bonnes réponses */
-  const BADGES = [
-    { min: 1, name: 'Roche mère', text: 'Un sans-faute. Toute l’histoire, de la poussière d’étoiles au béton.' },
-    { min: 0.8, name: 'Falaise de craie', text: 'Solide, construite couche après couche. Presque parfait !' },
-    { min: 0.6, name: 'Lichen pionnier', text: 'Bien accroché ! Encore un petit effort pour devenir une falaise.' },
-    { min: 0.4, name: 'Cyanobactérie', text: 'Tu commences à changer l’atmosphère. Rejoue pour faire mieux !' },
-    { min: 0, name: 'Grain de poussière', text: 'Tout commence par là. Relis les chapitres et retente ta chance.' },
-  ];
+  const PLAYERS = ['naim', 'alicia', 'siham'];
+  const ADULTS = { siham: true };
+  /* nombre de questions par joueur selon le nombre de joueurs */
+  const PER_PLAYER = { 1: 10, 2: 5, 3: 4 };
+  const NUM = ['zéro', 'une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze'];
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -75,8 +22,19 @@
     return a;
   }
 
+  /* m questions tirées au hasard, en gardant l'ordre des chapitres */
+  function pick(list, m) {
+    if (m >= list.length) return list.slice();
+    const idx = shuffle(list.map((_, i) => i)).slice(0, m).sort((a, b) => a - b);
+    return idx.map((i) => list[i]);
+  }
+
   window.RM.games.quiz = function (api) {
     const stage = api.stage;
+    const DATA = window.RM.quizData || {};
+    const KID_Q = DATA.enfants || [];
+    const ADULT_Q = DATA.adultes && DATA.adultes.length ? DATA.adultes : KID_Q;
+    const BADGES = DATA.insignes || [{ min: 0, name: 'Bravo', text: '' }];
     const KIDS = window.RM.kids;
     const NAME = (k) => (KIDS ? KIDS.name(k) : k);
     const face = (k, expr) => (KIDS ? KIDS.svg(k, { expr: expr || 'smile' }) : '');
@@ -84,13 +42,19 @@
     api.style(`
       .game[data-game="quiz"] .game-stage { padding: clamp(18px, 4vw, 32px); border-radius: 22px 28px 24px 20px; }
       .game[data-game="quiz"] .qz-top { display: flex; align-items: center; gap: 10px; margin: 0 0 0.6rem; }
-      .game[data-game="quiz"] .qz-top .qz-face { width: 40px; flex: none; }
+      .game[data-game="quiz"] .qz-top .qz-face { width: 44px; flex: none; }
       .game[data-game="quiz"] .qz-count { margin: 0; color: var(--muted); font-size: var(--step--1); font-variant-numeric: tabular-nums; }
       .game[data-game="quiz"] .qz-player { margin: 0; font-weight: 700; font-size: 1rem; color: var(--accent-ink); }
+      .game[data-game="quiz"] .qz-tag {
+        display: inline-block; margin-left: 6px; padding: 2px 9px 3px; border-radius: 999px; vertical-align: 1px;
+        background: var(--accent); color: var(--btn-fg); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.01em;
+      }
       .game[data-game="quiz"] .qz-q {
         margin: 0 0 1.1rem; font-family: var(--font-display); font-weight: 750;
         font-variation-settings: "SOFT" 100, "opsz" 48; font-size: var(--step-2); line-height: 1.12; text-wrap: balance;
       }
+      .game[data-game="quiz"] .qz-q.is-adult { font-size: var(--step-1); line-height: 1.18; }
+      .game[data-game="quiz"] .qz-sub { margin: -0.5rem 0 1rem; color: var(--muted); }
       .game[data-game="quiz"] .qz-answers { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
       .game[data-game="quiz"] .qz-a {
         width: 100%; min-height: 54px; padding: 12px 16px 12px 48px; position: relative; text-align: left;
@@ -113,23 +77,42 @@
       .game[data-game="quiz"] .qz-feedback strong { color: var(--accent-ink); }
       .game[data-game="quiz"] .qz-feedback.is-wrong strong { color: #FFB3B3; }
       .game[data-game="quiz"] .qz-next { margin-top: 1rem; background: var(--accent); color: var(--btn-fg); }
-      .game[data-game="quiz"] .qz-who { display: grid; gap: 12px; }
+      .game[data-game="quiz"] .qz-next[disabled] { opacity: 0.4; cursor: default; }
+
+      .game[data-game="quiz"] .qz-who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
       .game[data-game="quiz"] .qz-pick {
-        display: flex; align-items: center; gap: 14px; width: 100%; min-height: 76px; padding: 10px 16px 10px 10px;
-        border: 0; border-radius: 22px 26px 23px 25px; background: rgba(255,255,255,0.08); color: var(--fg);
-        box-shadow: inset 0 0 0 1.5px var(--line); font: 700 1.15rem/1.2 var(--font-text); text-align: left; cursor: pointer;
-        touch-action: manipulation;
+        position: relative; display: grid; justify-items: center; align-content: start; gap: 6px;
+        width: 100%; min-width: 0; padding: 16px 6px 12px; border: 0; border-radius: 22px 26px 23px 25px;
+        background: rgba(255,255,255,0.06); color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--line);
+        font: 700 1.05rem/1.15 var(--font-text); text-align: center; cursor: pointer; touch-action: manipulation;
+        transition: background .2s, box-shadow .2s, transform .12s;
       }
-      .game[data-game="quiz"] .qz-pick:hover { background: rgba(255,255,255,0.13); }
-      .game[data-game="quiz"] .qz-pick:active { transform: scale(0.985); }
-      .game[data-game="quiz"] .qz-pick .qz-faces { display: flex; flex: none; }
-      .game[data-game="quiz"] .qz-pick .qz-face { width: 58px; }
-      .game[data-game="quiz"] .qz-pick .qz-face + .qz-face { margin-left: -18px; }
-      .game[data-game="quiz"] .qz-pick small { display: block; font-weight: 400; font-size: 0.9rem; color: var(--muted); margin-top: 2px; }
+      .game[data-game="quiz"] .qz-pick:hover { background: rgba(255,255,255,0.11); }
+      .game[data-game="quiz"] .qz-pick:active { transform: scale(0.97); }
+      .game[data-game="quiz"] .qz-pick .qz-face {
+        display: block; width: min(78px, 82%); margin-bottom: 4px;
+        filter: saturate(0.55) brightness(0.85); transition: transform .3s cubic-bezier(.2,1.5,.4,1), filter .25s;
+      }
+      .game[data-game="quiz"] .qz-pick small { display: block; font-weight: 400; font-size: 0.8rem; line-height: 1.2; color: var(--muted); }
+      .game[data-game="quiz"] .qz-pick[aria-pressed="true"] { background: rgba(255,255,255,0.14); box-shadow: inset 0 0 0 2.5px var(--accent); }
+      .game[data-game="quiz"] .qz-pick[aria-pressed="true"] .qz-face { filter: none; transform: scale(1.07) rotate(-3deg); }
+      .game[data-game="quiz"] .qz-check {
+        position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; border-radius: 50%;
+        box-shadow: inset 0 0 0 2px var(--line); transition: background .2s;
+      }
+      .game[data-game="quiz"] .qz-pick[aria-pressed="true"] .qz-check { background: var(--accent); box-shadow: none; }
+      .game[data-game="quiz"] .qz-pick[aria-pressed="true"] .qz-check::after {
+        content: ""; position: absolute; left: 8.5px; top: 4.5px; width: 6px; height: 11px;
+        border: solid var(--btn-fg); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg);
+      }
+      .game[data-game="quiz"] .qz-info { margin: 1rem 0 0; min-height: 1.4em; font-weight: 600; text-wrap: balance; }
+
       .game[data-game="quiz"] .qz-end { display: grid; gap: 1.2rem; text-align: center; padding-block: 0.3rem; }
       .game[data-game="quiz"] .qz-results { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }
-      .game[data-game="quiz"] .qz-res { display: grid; gap: 0.6rem; justify-items: center; }
+      .game[data-game="quiz"] .qz-results.is-trio { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+      .game[data-game="quiz"] .qz-res { display: grid; gap: 0.6rem; justify-items: center; align-content: start; min-width: 0; }
       .game[data-game="quiz"] .qz-res .qz-face { width: 64px; margin-bottom: -22px; position: relative; z-index: 1; }
+      .game[data-game="quiz"] .is-trio .qz-res .qz-face { width: 50px; margin-bottom: -18px; }
       .game[data-game="quiz"] .qz-badge {
         width: min(190px, 100%); aspect-ratio: 1.18; border-radius: 48% 52% 44% 56% / 55% 45% 55% 45%;
         background: linear-gradient(180deg, #A9E4E7 0 12%, #FF7C8F 12% 55%, #FF6FAE 55% 88%, #E05AB5 88% 100%);
@@ -137,25 +120,34 @@
         display: grid; place-items: center; transform: rotate(-4deg);
         animation: qz-pop .7s cubic-bezier(.2,1.4,.4,1) both;
       }
+      .game[data-game="quiz"] .qz-badge.is-adult { background: linear-gradient(180deg, #FFE6A8 0 12%, #F7B267 12% 55%, #F4845F 55% 88%, #E0566B 88% 100%); }
       .game[data-game="quiz"] .qz-score {
         font-family: var(--font-display); font-weight: 900; font-variation-settings: "SOFT" 100, "opsz" 144;
         font-size: clamp(2.4rem, 10vw, 3.2rem); line-height: 1; color: #1B1230; transform: rotate(4deg);
       }
+      .game[data-game="quiz"] .is-trio .qz-score { font-size: clamp(1.5rem, 6.5vw, 2.3rem); }
       .game[data-game="quiz"] .qz-score small { font-size: 0.45em; font-weight: 700; }
       .game[data-game="quiz"] .qz-title {
         margin: 0; font-family: var(--font-display); font-weight: 800; font-variation-settings: "SOFT" 100, "opsz" 72;
-        font-size: 1.2rem; line-height: 1.15;
+        font-size: 1.2rem; line-height: 1.15; overflow-wrap: anywhere;
       }
+      .game[data-game="quiz"] .is-trio .qz-title { font-size: 0.95rem; }
+      .game[data-game="quiz"] .qz-title span { display: block; font-size: 0.82em; font-weight: 700; color: var(--accent-ink); }
       .game[data-game="quiz"] .qz-text { margin: 0; max-width: 28rem; justify-self: center; }
       .game[data-game="quiz"] .qz-team { margin: 0; font-weight: 700; }
       @keyframes qz-pop { from { transform: rotate(-4deg) scale(0.4); opacity: 0; } to { transform: rotate(-4deg) scale(1); opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) {
+        .game[data-game="quiz"] .qz-badge { animation: none; }
+        .game[data-game="quiz"] .qz-pick .qz-face { transition: none; }
+      }
     `);
 
-    let players = [];   /* ['naim'], ['alicia'] ou ['naim', 'alicia'] */
-    let order = [];
+    let players = [];   /* ex. ['naim'], ['naim', 'siham'] ou ['naim', 'alicia', 'siham'] */
+    let order = [];     /* [{ k, item }] : à qui est la question, et laquelle */
     let idx = 0;
     let score = {};
     let asked = {};
+    let chosen = new Set();
 
     function el(tag, cls, text) {
       const e = document.createElement(tag);
@@ -163,56 +155,100 @@
       if (text != null) e.textContent = lib.fr(text);
       return e;
     }
-    const who = () => players[idx % players.length];
+    const together = (n) => (n >= 3 ? 'À vous trois' : 'À vous deux');
+
+    function describe(sel) {
+      const n = sel.length;
+      if (!n) return 'Touchez au moins une photo.';
+      const per = PER_PLAYER[n];
+      if (n === 1) {
+        const k = sel[0];
+        return ADULTS[k]
+          ? `${NUM[per][0].toUpperCase()}${NUM[per].slice(1)} questions de grands rien que pour toi, ${NAME(k)}.`
+          : `${NUM[per][0].toUpperCase()}${NUM[per].slice(1)} questions rien que pour toi, ${NAME(k)}.`;
+      }
+      return `Chacun son tour : ${NUM[per]} questions chacun, ${NUM[per * n]} en tout.`;
+    }
 
     function renderStart() {
       stage.textContent = '';
+      chosen = new Set();
       stage.appendChild(el('h3', 'qz-q', 'Qui joue ?'));
+      stage.appendChild(el('p', 'qz-sub', 'Touchez la photo de chaque joueur, puis lancez la partie.'));
       const box = el('div', 'qz-who');
-      const opts = [
-        { p: ['naim'], label: NAME('naim'), sub: 'Dix questions rien que pour toi.' },
-        { p: ['alicia'], label: NAME('alicia'), sub: 'Dix questions rien que pour toi.' },
-        { p: ['naim', 'alicia'], label: 'Les deux', sub: 'Chacun son tour, cinq questions chacun.' },
-      ];
-      opts.forEach((o) => {
+      const info = el('p', 'qz-info', describe([]));
+      info.setAttribute('aria-live', 'polite');
+      const go = el('button', 'chip qz-next', 'C’est parti !');
+      go.type = 'button';
+      go.disabled = true;
+      const refresh = () => {
+        const sel = PLAYERS.filter((k) => chosen.has(k));
+        info.textContent = lib.fr(describe(sel));
+        go.disabled = !sel.length;
+        if (sel.length) api.guide(sel.join(' '), 'smile', sel.length > 1 ? `${together(sel.length)} !` : `À toi, ${NAME(sel[0])} !`);
+        else api.guide('all', 'smile', 'Qui joue ?');
+      };
+      PLAYERS.forEach((k) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'qz-pick';
-        b.innerHTML = `<span class="qz-faces" aria-hidden="true">${o.p.map((k) => `<span class="qz-face">${face(k)}</span>`).join('')}</span>`;
-        const t = el('span', '', o.label);
-        t.appendChild(el('small', '', o.sub));
+        b.dataset.player = k;
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = `<span class="qz-check" aria-hidden="true"></span><span class="qz-face" aria-hidden="true">${face(k)}</span>`;
+        const t = el('span', '', NAME(k));
+        t.appendChild(el('small', '', ADULTS[k] ? 'Questions de grands' : 'Questions d’enfants'));
         b.appendChild(t);
-        b.addEventListener('click', () => start(o.p));
+        b.addEventListener('click', () => {
+          const on = !chosen.has(k);
+          if (on) chosen.add(k); else chosen.delete(k);
+          b.setAttribute('aria-pressed', String(on));
+          b.querySelector('.qz-face').innerHTML = face(k, on ? 'laugh' : 'smile');
+          api.sfx.play('pop', { pitch: on ? 1.15 : 0.85 });
+          api.buzz(8);
+          refresh();
+        });
         box.appendChild(b);
       });
-      stage.appendChild(box);
-      api.guide('both', 'smile', 'À vous deux !');
+      go.addEventListener('click', () => {
+        const sel = PLAYERS.filter((k) => chosen.has(k));
+        if (sel.length) start(sel);
+      });
+      stage.append(box, info, go);
+      api.guide('all', 'smile', 'Qui joue ?');
       api.hint('Choisissez qui joue.');
     }
 
     function start(p) {
       players = p;
-      order = QUESTIONS.slice();
+      const n = players.length;
+      const total = PER_PLAYER[n] * n;
+      const turns = Array.from({ length: total }, (_, t) => players[t % n]);
+      const kids = pick(KID_Q, turns.filter((k) => !ADULTS[k]).length);
+      const adults = pick(ADULT_Q, turns.filter((k) => ADULTS[k]).length);
+      order = turns.map((k) => ({ k, item: ADULTS[k] ? adults.shift() : kids.shift() })).filter((o) => o.item);
       idx = 0;
       score = {};
       asked = {};
       players.forEach((k) => { score[k] = 0; asked[k] = 0; });
       api.sfx.play('chime');
+      api.status(statusLine());
       renderQuestion();
+      scrollIntoViewIfNeeded();
     }
 
     function renderQuestion() {
-      const item = order[idx];
-      const k = who();
+      const { k, item } = order[idx];
       stage.textContent = '';
       const top = el('div', 'qz-top');
       top.insertAdjacentHTML('beforeend', `<span class="qz-face" aria-hidden="true">${face(k)}</span>`);
       const meta = el('div', '');
-      meta.appendChild(el('p', 'qz-player', players.length > 1 ? `À toi, ${NAME(k)} !` : NAME(k)));
+      const who = el('p', 'qz-player', players.length > 1 ? `À toi, ${NAME(k)} !` : NAME(k));
+      if (ADULTS[k]) who.appendChild(el('span', 'qz-tag', 'pour les grands'));
+      meta.appendChild(who);
       meta.appendChild(el('p', 'qz-count', `Question ${idx + 1} sur ${order.length}`));
       top.appendChild(meta);
       stage.appendChild(top);
-      const q = el('h3', 'qz-q', item.q);
+      const q = el('h3', 'qz-q' + (ADULTS[k] ? ' is-adult' : ''), item.q);
       q.tabIndex = -1;
       stage.appendChild(q);
       const list = el('ul', 'qz-answers');
@@ -239,13 +275,12 @@
     }
 
     function choose(ans, button, buttons, answers) {
-      const k = who();
+      const { k, item } = order[idx];
       buttons.forEach((b, i) => {
         b.disabled = true;
         if (answers[i].right) b.classList.add('is-right');
       });
       const fb = stage.querySelector('.qz-feedback');
-      const item = order[idx];
       asked[k]++;
       fb.innerHTML = '';
       if (ans.right) {
@@ -265,7 +300,7 @@
       api.progress((idx + 1) / order.length);
       api.status(statusLine());
       const last = idx + 1 >= order.length;
-      const nextName = !last && players.length > 1 ? NAME(players[(idx + 1) % players.length]) : '';
+      const nextName = !last && players.length > 1 ? NAME(order[idx + 1].k) : '';
       const next = el('button', 'chip qz-next', last ? 'Voir le résultat' : (nextName ? `Au tour de ${nextName}` : 'Question suivante'));
       next.type = 'button';
       next.addEventListener('click', () => {
@@ -290,30 +325,33 @@
 
     function renderEnd() {
       stage.textContent = '';
+      const n = players.length;
       const box = el('div', 'qz-end');
-      const res = el('div', 'qz-results');
+      const res = el('div', 'qz-results' + (n >= 3 ? ' is-trio' : ''));
       players.forEach((k) => {
         const ratio = asked[k] ? score[k] / asked[k] : 0;
-        const badge = BADGES.find((b) => ratio >= b.min);
+        const badge = BADGES.find((b) => ratio >= b.min) || BADGES[BADGES.length - 1];
         const card = el('div', 'qz-res');
         card.insertAdjacentHTML('beforeend', `<span class="qz-face" aria-hidden="true">${face(k, ratio >= 0.6 ? 'laugh' : 'smile')}</span>`);
-        const pebble = el('div', 'qz-badge');
+        const pebble = el('div', 'qz-badge' + (ADULTS[k] ? ' is-adult' : ''));
         const sc = el('div', 'qz-score');
         sc.innerHTML = `${score[k]}<small>/${asked[k]}</small>`;
         pebble.appendChild(sc);
         card.appendChild(pebble);
-        card.appendChild(el('p', 'qz-title', `${NAME(k)} : ${badge.name}`));
-        if (players.length === 1) card.appendChild(el('p', 'qz-text', badge.text));
+        const title = el('p', 'qz-title', NAME(k));
+        title.appendChild(el('span', '', badge.name));
+        card.appendChild(title);
+        if (n === 1 && badge.text) card.appendChild(el('p', 'qz-text', badge.text));
         res.appendChild(card);
       });
       box.appendChild(res);
       const total = players.reduce((t, k) => t + score[k], 0);
-      if (players.length > 1) box.appendChild(el('p', 'qz-team', `À vous deux : ${total} bonnes réponses sur ${order.length}.`));
+      if (n > 1) box.appendChild(el('p', 'qz-team', `${together(n)} : ${total} bonne${total > 1 ? 's' : ''} réponse${total > 1 ? 's' : ''} sur ${order.length}.`));
       stage.appendChild(box);
       api.status('');
-      const who1 = players.length > 1 ? 'both' : players[0];
       api.done(`${total} bonne${total > 1 ? 's' : ''} réponse${total > 1 ? 's' : ''} sur ${order.length}.`, 'Pour rejouer, touche Recommencer.');
-      api.guide(who1, 'laugh', who1 === 'both' ? 'Bravo à vous deux !' : `Bravo, ${NAME(who1)} !`);
+      if (n > 1) api.guide(players.join(' '), 'laugh', `Bravo ${n >= 3 ? 'à vous trois' : 'à vous deux'} !`);
+      else api.guide(players[0], 'laugh', `Bravo, ${NAME(players[0])} !`);
       scrollIntoViewIfNeeded();
     }
 

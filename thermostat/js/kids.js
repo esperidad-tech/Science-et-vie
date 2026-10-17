@@ -21,7 +21,10 @@
       bg: '#FFC4A3', bgDeep: '#F4A07C',
       cloth: '#ECDEC7', clothShade: '#D6C3A3',
     },
+    /* Siham joue seulement au quiz final, toujours en photo */
+    siham: { name: 'Siham', bg: '#FFA9C9', bgDeep: '#F27BAA' },
   };
+  const DRAWN = { naim: true, alicia: true };
 
   let uid = 0;
 
@@ -115,6 +118,7 @@
   const PHOTOS = {
     naim: { smile: 'naim-sourire', hero: 'naim-sourire', wow: 'naim-cri', laugh: 'naim-cri', shout: 'naim-cri' },
     alicia: { smile: 'alicia-sourire', hero: 'alicia-mer', wow: 'alicia-rire', laugh: 'alicia-rire', shout: 'alicia-rire' },
+    siham: { smile: 'siham-sourire', hero: 'siham-sourire', wow: 'siham-rire', laugh: 'siham-rire', shout: 'siham-rire' },
   };
   const BASE = window.RM_KIDS_BASE || 'img/enfants/';
   function src(file) {
@@ -143,7 +147,7 @@
   function svg(name, opts = {}) {
     const k = KIDS[name];
     if (!k) return '';
-    if (window.RM_KIDS_DRAWN !== true && PHOTOS[name]) return photo(name, opts.expr || 'smile');
+    if (PHOTOS[name] && (window.RM_KIDS_DRAWN !== true || !DRAWN[name])) return photo(name, opts.expr || 'smile');
     const expr = opts.expr === 'hero' ? 'smile' : (opts.expr || 'smile');
     const frame = opts.frame !== false;
     const girl = name === 'alicia';
