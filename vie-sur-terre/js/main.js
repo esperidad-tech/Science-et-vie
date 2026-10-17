@@ -193,7 +193,10 @@
     }
     const w = g.dataset.who;
     g.querySelector('.guide-faces').innerHTML = faces(w, expr || 'smile');
-    g.querySelector('.guide-turn').textContent = turn || (TURN[w] || TURN.both)[0];
+    /* sans texte fourni : on garde l'actuel, sauf quand on change de joueur */
+    const turnEl = g.querySelector('.guide-turn');
+    if (turn) turnEl.textContent = turn;
+    else if (who || !turnEl.textContent) turnEl.textContent = (TURN[w] || TURN.both)[0];
   }
   document.querySelectorAll('.game[data-guide]').forEach((fig) => {
     const hint = fig.querySelector('.game-hint');

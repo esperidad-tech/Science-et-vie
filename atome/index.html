@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La force de l’atome</title>
+<meta name="description" content="L'énergie nucléaire racontée aux enfants : des découvertes aux centrales, des accidents aux déchets, avec ses atouts et ses limites. D'après une vidéo de Christophe Pauly.">
+<meta name="theme-color" content="#081428">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='9' fill='%233FA9FF'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='10' fill='none' stroke='%23F2C230' stroke-width='3'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='10' fill='none' stroke='%23F2C230' stroke-width='3' transform='rotate(60 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='10' fill='none' stroke='%23F2C230' stroke-width='3' transform='rotate(120 32 32)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,800;1,400&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<style>:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }</style>
+</head>
+<body>
+<a class="skip" href="#origines">Aller au premier chapitre</a>
+
+<header class="timebar">
+  <div class="tb-row">
+    <p class="tb-now"><span class="tb-dot" aria-hidden="true"></span><span class="tb-eon">Aujourd’hui</span><span class="tb-ago">2026</span></p>
+    <button class="tb-btn tb-sound" type="button" aria-pressed="false" aria-label="Activer le son" title="Son">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-speaker" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path class="ic-wave" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11"/><path class="ic-mute" d="M16 9.5l5 5M21 9.5l-5 5"/></svg>
+    </button>
+    <button class="tb-btn tb-menu" type="button" aria-expanded="false" aria-controls="sommaire" aria-label="Chapitres" title="Chapitres">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h9"/></svg>
+    </button>
+  </div>
+  <div class="tb-ribbon" aria-hidden="true">
+    <span class="tb-seg" style="--w: 43; --c: #F2C230"></span>
+    <span class="tb-seg" style="--w: 7; --c: #D9434B"></span>
+    <span class="tb-seg" style="--w: 41; --c: #3FA9FF"></span>
+    <span class="tb-seg" style="--w: 25; --c: #FF8A3D"></span>
+    <span class="tb-seg" style="--w: 15; --c: #8BD86A"></span>
+    <span class="tb-marker"></span>
+  </div>
+</header>
+
+<div class="toc" id="sommaire" hidden>
+  <nav class="toc-panel" aria-label="Chapitres">
+    <div class="toc-head">
+      <p class="toc-heading">L’histoire de l’atome, chapitre par chapitre</p>
+      <button class="toc-close" type="button" aria-label="Fermer le sommaire">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ol></ol>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ Ouverture : la réaction en chaîne ============ -->
+<section class="chapter hero" id="debut" data-chapter data-era="cherenkov" data-year="2026" data-year-label="aujourd’hui" data-period="aujourdhui" data-title="Faut-il en avoir peur ?" data-when="Aujourd’hui">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1>La force de l’atome</h1>
+      <p class="hero-sub">Une énergie minuscule et gigantesque à la fois. Faut-il en avoir peur, ou compter sur elle pour le climat ?</p>
+      <div class="hero-duo">
+        <div class="hero-duo-faces" data-kids="naim alicia" aria-hidden="true"></div>
+        <p>Une enquête pour Naïm et Alicia</p>
+      </div>
+    </div>
+    <figure class="game" data-game="fission" data-guide="both" role="group" aria-label="Mini-jeu : piloter une réaction en chaîne avec les barres de contrôle">
+      <div class="game-stage" style="--ratio: 1 / 1"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Lance un neutron sur un noyau d’uranium, puis règle les barres de contrôle pour garder la réaction stable.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <div class="hero-foot">
+      <p class="lede">Au cœur de chaque atome se cache une énergie fabuleuse. On l’a découverte il y a un peu plus d’un siècle. Elle a servi à faire des bombes, puis à éclairer des villes entières. Elle a connu des accidents terribles, et elle produit presque sans CO2. Alors, le nucléaire : danger ou solution ?</p>
+      <p class="credit">D’après la vidéo de Christophe Pauly <cite>We Were Wrong About the Real Cost of Nuclear Energy</cite> (2026). <a href="https://www.youtube.com/watch?v=0hFygtWZG6w" target="_blank" rel="noopener">Voir la vidéo</a></p>
+      <a class="next" href="#origines">Commencer l’enquête</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Les origines ============ -->
+<section class="chapter" id="origines" data-chapter data-era="radium" data-year="1896" data-period="decouvertes" data-title="Le secret caché dans la matière" data-when="De 1896 à 1942">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">De 1896 à 1942</p>
+      <h2>Le secret caché dans la matière</h2>
+    </header>
+    <div class="chapter-text">
+      <p>En 1896, le Français Henri Becquerel remarque que l’uranium émet tout seul un rayonnement invisible. Deux ans plus tard, Marie et Pierre Curie découvrent deux nouveaux éléments encore plus actifs, le polonium et le radium. On appelle ce phénomène la radioactivité.</p>
+      <p>Fin 1938, en Allemagne, Otto Hahn et Fritz Strassmann découvrent qu’un noyau d’uranium peut se casser en deux quand un neutron le frappe. Quelques semaines plus tard, Lise Meitner et Otto Frisch expliquent le phénomène et lui donnent un nom : la fission. Elle libère beaucoup d’énergie, et 2 ou 3 neutrons qui peuvent casser d’autres noyaux. En 1942, à Chicago, l’équipe d’Enrico Fermi fait fonctionner le tout premier réacteur.</p>
+    </div>
+    <figure class="game" data-game="geiger" data-guide="alicia" role="group" aria-label="Mini-jeu : chercher la radioactivité naturelle avec un compteur Geiger">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Promène le compteur Geiger au-dessus des objets et écoute : lequel est le plus radioactif ?</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Marie Curie est la première femme à avoir reçu un prix Nobel, et la seule personne récompensée dans deux sciences différentes : la physique et la chimie.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ 1945 ============ -->
+<section class="chapter" id="bombe" data-chapter data-era="cendre" data-year="1945" data-period="guerre" data-title="Une énergie redoutable" data-when="1945">
+  <div class="wrap chapter-grid chapter-grid--text">
+    <header class="chapter-head">
+      <p class="when">1945</p>
+      <h2>Une énergie redoutable</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Pendant la Seconde Guerre mondiale, cette découverte sert d’abord à fabriquer une arme. En août 1945, à la fin de la guerre, deux bombes atomiques américaines détruisent les villes japonaises d’Hiroshima et de Nagasaki. Plus de 200 000 personnes en meurent, sur le coup ou dans les mois qui suivent.</p>
+      <p>Même les scientifiques doivent apprendre à se méfier de cette force. À Los Alamos, aux États-Unis, deux chercheurs, Harry Daghlian et Louis Slotin, meurent en 1945 et 1946 après une erreur pendant des expériences avec le même morceau de plutonium, qu’on surnommera le « cœur du démon ». Après cela, ces expériences se font à distance, avec des machines.</p>
+    </div>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Depuis 1945, plus aucune bombe atomique n’a été utilisée dans une guerre. Des traités internationaux cherchent à limiter ces armes.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La centrale ============ -->
+<section class="chapter" id="centrale" data-chapter data-era="cherenkov" data-year="1954" data-period="atomique" data-title="De l’atome à la lampe" data-when="Depuis les années 1950">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Depuis les années 1950</p>
+      <h2>De l’atome à la lampe</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Une centrale nucléaire, c’est une énorme bouilloire. Dans le réacteur, la fission des noyaux d’uranium chauffe de l’eau, qui fait bouillir à son tour une autre eau. La vapeur fait tourner une turbine, reliée à un alternateur, une sorte de dynamo géante : il en sort de l’électricité.</p>
+      <p>Pour ralentir ou arrêter la réaction, on enfonce des barres de contrôle qui avalent les neutrons. Et ce qui sort des grandes tours, ce n’est pas de la fumée : c’est de la vapeur d’eau, qui sert à refroidir l’installation.</p>
+    </div>
+    <figure class="game" data-game="centrale" data-guide="naim" role="group" aria-label="Mini-jeu : faire fonctionner une centrale nucléaire jusqu'à allumer la ville">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Mets la centrale en marche, étape par étape, jusqu’à allumer la ville.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Une seule pastille de combustible, grosse comme le bout de ton doigt (environ 7 grammes), produit à peu près autant d’énergie qu’une tonne de charbon, le poids d’une petite voiture.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Tchernobyl ============ -->
+<section class="chapter" id="tchernobyl" data-chapter data-era="cendre" data-year="1986" data-period="accidents" data-title="La nuit où tout a changé" data-when="26 avril 1986">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">26 avril 1986</p>
+      <h2>La nuit où tout a changé</h2>
+    </header>
+    <div class="chapter-text">
+      <p>À Tchernobyl, en Ukraine, alors en Union soviétique, un essai de sécurité tourne mal dans un réacteur mal conçu. Une explosion et un incendie projettent de la radioactivité jusque dans toute l’Europe.</p>
+      <p>Une trentaine de pompiers et d’employés meurent dans les semaines qui suivent. Des milliers d’enfants de la région auront plus tard un cancer de la thyroïde, presque tous guéris, et le nombre de morts à long terme reste discuté. Aujourd’hui encore, une zone d’environ 30 kilomètres autour de la centrale reste interdite. Depuis, les règles de sûreté ont été renforcées partout.</p>
+    </div>
+    <figure class="game" data-game="barrieres" data-guide="alicia" role="group" aria-label="Mini-jeu : construire les barrières de sûreté autour du combustible">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Construis les trois barrières qui enferment la radioactivité, de la plus petite à la plus grande.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Le réacteur de Tchernobyl n’avait pas de grande enceinte de béton pour tout enfermer. Les centrales françaises en ont une.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Fukushima ============ -->
+<section class="chapter" id="fukushima" data-chapter data-era="mer" data-year="2011" data-period="accidents" data-title="Le tsunami et la centrale" data-when="11 mars 2011">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">11 mars 2011</p>
+      <h2>Le tsunami et la centrale</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Au Japon, un énorme séisme déclenche un tsunami. Des vagues de 14 à 15 mètres passent par-dessus la digue de la centrale de Fukushima et noient les machines de secours. Sans refroidissement, le cœur de trois réacteurs fond.</p>
+      <p>Le tsunami lui-même a fait environ 18 000 victimes. À cause de la radioactivité, plus de 100 000 habitants ont dû quitter leur maison. Officiellement, les radiations ont tué un travailleur, mais l’évacuation, très dure pour beaucoup de personnes âgées, a fait plus de 2 000 morts. Depuis, partout dans le monde, on protège mieux les centrales contre l’eau et les pannes.</p>
+    </div>
+    <figure class="game" data-game="tsunami" data-guide="naim" role="group" aria-label="Mini-jeu : protéger une centrale avant l'arrivée d'une vague">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Avant que la vague arrive, protège la centrale : rehausse la digue et monte les machines de secours.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Après Fukushima, la France a ajouté à chaque centrale des groupes électrogènes de secours, protégés dans des bâtiments à toute épreuve.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Les réacteurs oubliés ============ -->
+<section class="chapter" id="oublies" data-chapter data-era="radium" data-year="1965" data-year-label="1965 – 2019" data-period="atomique" data-title="Les réacteurs qu’on a oubliés" data-when="De 1965 à 2019">
+  <div class="wrap chapter-grid chapter-grid--text">
+    <header class="chapter-head">
+      <p class="when">De 1965 à 2019</p>
+      <h2>Les réacteurs qu’on a oubliés</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Il n’existe pas qu’une seule façon de construire un réacteur. Aux États-Unis, à Oak Ridge, un petit réacteur expérimental a fonctionné de 1965 à 1969 avec un combustible liquide, dissous dans des sels fondus. D’autres rêvent d’utiliser le thorium, un métal environ trois fois plus courant que l’uranium : aucune centrale ne l’utilise encore, mais la Chine et l’Inde font des essais.</p>
+      <p>En France, Superphénix, un réacteur géant dit « à neutrons rapides », pouvait fabriquer une partie de son propre combustible. Souvent à l’arrêt et très contesté, il a été fermé par le gouvernement en 1997-1998, et son successeur, Astrid, a été abandonné en 2019. Certaines de ces idées reviennent aujourd’hui dans des projets de petits réacteurs.</p>
+    </div>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>La plupart des centrales du monde utilisent la même technique : de l’eau sous pression, qui chauffe et refroidit à la fois le cœur du réacteur.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La France ============ -->
+<section class="chapter" id="france" data-chapter data-era="nuit" data-year="2024" data-period="aujourdhui" data-title="La France, pays du nucléaire" data-when="Aujourd’hui">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Aujourd’hui</p>
+      <h2>La France, pays du nucléaire</h2>
+    </header>
+    <div class="chapter-text">
+      <p>La France compte 57 réacteurs, répartis dans 18 centrales. Ils produisent environ les deux tiers de son électricité (68 % en 2025), la plus grande part au monde.</p>
+      <p>Mais construire de nouveaux réacteurs s’est révélé difficile. Le dernier, à Flamanville, en Normandie, a été commencé en 2007 et branché fin 2024, avec douze ans de retard. Il a coûté près de 24 milliards d’euros intérêts compris selon la Cour des comptes, au lieu des 3,3 milliards prévus. En 2022, le gouvernement a annoncé six nouveaux réacteurs ; le premier pourrait démarrer vers 2038.</p>
+    </div>
+    <figure class="game" data-game="mix" data-guide="alicia" role="group" aria-label="Mini-jeu : éclairer la ville jour et nuit avec un mélange d'énergies">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Choisis tes sources d’électricité pour éclairer la ville jour et nuit, en émettant le moins de CO2 possible.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Sur toute sa durée de vie, une centrale nucléaire émet à peu près aussi peu de CO2 qu’une éolienne pour chaque kilowattheure produit, et environ 70 fois moins qu’une centrale à charbon.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Les déchets ============ -->
+<section class="chapter" id="dechets" data-chapter data-era="argile" data-year="2025" data-period="aujourdhui" data-title="Le casse-tête des déchets" data-when="Pour des milliers d’années">
+  <div class="wrap chapter-grid">
+    <header class="chapter-head">
+      <p class="when">Pour des milliers d’années</p>
+      <h2>Le casse-tête des déchets</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Le nucléaire produit des déchets radioactifs, mais pas tous dangereux de la même façon. La plupart sont très peu actifs : des gants, des outils, des gravats. Les plus dangereux, ceux de haute activité, ne représentent qu’une toute petite partie du volume, mais presque toute la radioactivité.</p>
+      <p>Ces déchets-là doivent être isolés pendant des milliers d’années. La France prévoit de les ranger à 500 mètres sous terre, à Bure, dans une couche d’argile restée immobile depuis des millions d’années : c’est le projet Cigéo, pas encore autorisé. Pour certains, c’est la meilleure solution ; pour d’autres, c’est un héritage lourd laissé aux générations futures.</p>
+    </div>
+    <figure class="game" data-game="dechets" data-guide="naim" role="group" aria-label="Mini-jeu : trier les déchets radioactifs et les ranger au bon endroit">
+      <div class="game-stage" style="--ratio: 4 / 5"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Range chaque déchet au bon endroit : plus il est radioactif, plus il doit aller profond.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Rejouer</button>
+        </div>
+      </figcaption>
+    </figure>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>Les déchets de haute activité ne représentent qu’environ 0,2 % du volume des déchets radioactifs français, à peu près deux piscines olympiques, mais environ 97 % de leur radioactivité.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ La guerre ============ -->
+<section class="chapter" id="guerre" data-chapter data-era="cendre" data-year="2022" data-period="aujourdhui" data-title="Une centrale au cœur de la guerre" data-when="Depuis 2022">
+  <div class="wrap chapter-grid chapter-grid--text">
+    <header class="chapter-head">
+      <p class="when">Depuis 2022</p>
+      <h2>Une centrale au cœur de la guerre</h2>
+    </header>
+    <div class="chapter-text">
+      <p>En Ukraine, la centrale de Zaporijjia est la plus grande d’Europe, avec six réacteurs. Depuis mars 2022, elle est occupée par l’armée russe. Ses réacteurs sont à l’arrêt mais doivent toujours être refroidis, et les combats lui ont coupé l’électricité plus de vingt fois. Des experts de l’AIEA, l’agence de l’ONU pour le nucléaire, vivent sur place depuis 2022 pour surveiller la sûreté.</p>
+      <p>Une centrale n’a jamais été conçue pour se trouver sur un champ de bataille. Cette situation inquiète le monde entier.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Le vrai danger ============ -->
+<section class="chapter" id="danger" data-chapter data-era="nuit" data-year="2026" data-year-label="aujourd’hui" data-period="aujourdhui" data-title="Danger ou solution ?" data-when="À toi de te faire une idée">
+  <div class="wrap chapter-grid chapter-grid--text">
+    <header class="chapter-head">
+      <p class="when">À toi de te faire une idée</p>
+      <h2>Danger ou solution ?</h2>
+    </header>
+    <div class="chapter-text">
+      <p>Pour certains, le nucléaire est indispensable pour le climat : il produit beaucoup d’électricité, jour et nuit, presque sans CO2. Pour d’autres, il coûte trop cher, prend trop de temps à construire, laisse des déchets pour très longtemps, et un accident ou une guerre peuvent avoir des conséquences terribles.</p>
+      <p>Les deux camps ont des arguments sérieux. Les scientifiques sont d’accord sur un point : pour limiter le réchauffement, il faut arrêter de brûler du charbon, du pétrole et du gaz. La vraie question, c’est comment, et à quel prix.</p>
+    </div>
+    <aside class="fact">
+      <h3>Le savais-tu ?</h3>
+      <p>En comptant les accidents et la pollution de l’air, le charbon cause des centaines de fois plus de décès que le nucléaire pour la même quantité d’électricité produite.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Quiz ============ -->
+<section class="chapter" id="quiz" data-listen="off" data-chapter data-era="ocean" data-year="2026" data-year-label="à vous de jouer" data-period="aujourdhui" data-title="Es-tu un expert de l’atome ?" data-when="Le quiz">
+  <div class="wrap chapter-grid chapter-grid--single">
+    <header class="chapter-head">
+      <p class="when">Le quiz</p>
+      <h2>Es-tu un expert de l’atome ?</h2>
+    </header>
+    <figure class="game game--free" data-game="quiz" data-guide="both" role="group" aria-label="Quiz de 10 questions">
+      <div class="game-stage"></div>
+      <figcaption class="game-bar">
+        <p class="game-hint">Dix questions pour voir ce que vous avez retenu.</p>
+        <p class="game-status" aria-live="polite"></p>
+        <div class="game-foot">
+          <div class="game-meter" role="progressbar" aria-label="Progression" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+          <button class="game-reset" type="button">Recommencer</button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer class="credits" data-era="nuit">
+  <div class="wrap credits-grid">
+    <div>
+      <h2>D’où vient ce site ?</h2>
+      <p>C’est une adaptation libre et ludique de la vidéo de vulgarisation <cite>We Were Wrong About the Real Cost of Nuclear Energy (and it’s crucial for the climate)</cite>, écrite et racontée par Christophe Pauly (2026). Le site présente les arguments des partisans comme des opposants du nucléaire.</p>
+      <p><a class="next" href="https://www.youtube.com/watch?v=0hFygtWZG6w" target="_blank" rel="noopener">Regarder la vidéo sur YouTube</a></p>
+      <p class="small">Tous les dessins et les jeux sont faits en code, sans aucune image de la vidéo. <a href="../">Retour à Science et vie</a></p>
+    </div>
+    <details class="sources">
+      <summary>Sources des chiffres</summary>
+      <ul class="sources-list">
+        <li><a href="https://old.iupac.org/publications/ci/2011/3301/5_adloff.html" target="_blank" rel="noopener">La découverte du polonium et du radium</a> (IUPAC)</li>
+        <li><a href="https://www.mpic.de/4469988/die-entdeckung-der-kernspaltung" target="_blank" rel="noopener">La découverte de la fission</a> (Institut Max-Planck)</li>
+        <li><a href="https://www.energy.gov/ne/downloads/history-nuclear-energy" target="_blank" rel="noopener">L’histoire de l’énergie nucléaire</a> (Département de l’Énergie des États-Unis)</li>
+        <li><a href="https://www.city.hiroshima.lg.jp/english/peace/1029867/1033035/1009888.html" target="_blank" rel="noopener">Hiroshima</a> (Ville d’Hiroshima)</li>
+        <li><a href="https://ahf.nuclearmuseum.org/ahf/history/atomic-accidents/" target="_blank" rel="noopener">Les accidents de Los Alamos</a> (Atomic Heritage Foundation)</li>
+        <li><a href="https://www.edf.fr/groupe-edf/espaces-dedies/jeunes-enseignants/pour-les-jeunes/lenergie-de-a-a-z/produire-de-lelectricite/luranium-le-combustible-nucleaire" target="_blank" rel="noopener">Le fonctionnement d’une centrale et la pastille d’uranium</a> (EDF)</li>
+        <li><a href="https://www.oecd-nea.org/rp/chernobyl/fr/c01.html" target="_blank" rel="noopener">Tchernobyl</a> (OCDE, Agence pour l’énergie nucléaire)</li>
+        <li><a href="https://www.who.int/news/item/05-09-2005-chernobyl-the-true-scale-of-the-accident" target="_blank" rel="noopener">Tchernobyl : l’ampleur réelle de l’accident</a> (OMS)</li>
+        <li><a href="https://world-nuclear.org/information-library/safety-and-security/safety-of-plants/fukushima-daiichi-accident" target="_blank" rel="noopener">Fukushima</a> (World Nuclear Association)</li>
+        <li><a href="https://unis.unvienna.org/unis/en/pressrels/2021/unisous419.html" target="_blank" rel="noopener">Les effets sanitaires de Fukushima</a> (UNSCEAR, 2021)</li>
+        <li><a href="https://www.ornl.gov/news/msres-50th" target="_blank" rel="noopener">Le réacteur à sels fondus d’Oak Ridge</a> (ORNL)</li>
+        <li><a href="https://www.edf.fr/groupe-edf/espaces-dedies/jeunes-enseignants/pour-les-jeunes/lenergie-de-a-a-z/produire-de-lelectricite/le-nucleaire-en-chiffres" target="_blank" rel="noopener">Le nucléaire en chiffres</a> (EDF)</li>
+        <li><a href="https://www.connaissancedesenergies.org/afp/programme-depr-la-cour-des-comptes-publie-un-rapport-critique-et-recalcule-le-cout-de-flamanville-3-250114" target="_blank" rel="noopener">Le coût de Flamanville selon la Cour des comptes</a> (Connaissance des énergies)</li>
+        <li><a href="https://inventaire.andra.fr/sites/default/files/pdf/andra_inventaire_national_essentiel_2026_web_2.pdf" target="_blank" rel="noopener">L’inventaire des déchets radioactifs</a> (Andra, 2026)</li>
+        <li><a href="https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf" target="_blank" rel="noopener">Les émissions de CO2 de chaque source d’électricité</a> (GIEC, 5e rapport)</li>
+        <li><a href="https://ourworldindata.org/safest-sources-of-energy" target="_blank" rel="noopener">Les énergies les plus sûres</a> (Our World in Data)</li>
+        <li><a href="https://www.iea.org/reports/projected-costs-of-generating-electricity-2020" target="_blank" rel="noopener">Les coûts de production de l’électricité</a> (AIE, 2020)</li>
+        <li><a href="https://www.connaissancedesenergies.org/les-futurs-energetiques-2050-de-rte-en-infographies-211025" target="_blank" rel="noopener">Les Futurs énergétiques 2050</a> (RTE, via Connaissance des énergies)</li>
+        <li><a href="https://www.connaissancedesenergies.org/afp/la-centrale-nucleaire-de-zaporijjia-reconnectee-au-reseau-electrique-annonce-laeia-260908" target="_blank" rel="noopener">Zaporijjia reconnectée au réseau</a> (Connaissance des énergies, septembre 2026)</li>
+        <li><a href="https://recherche-expertise.asnr.fr/sites/default/files/documents/actualites_presse/communiques_et_dossiers_de_presse/info_exposition_population-V2021.pdf" target="_blank" rel="noopener">La radioactivité reçue par les Français</a> (IRSN)</li>
+      </ul>
+    </details>
+  </div>
+</footer>
+
+<script src="js/lib.js"></script>
+<script src="js/kids.js"></script>
+<script src="js/games/fission.js"></script>
+<script src="js/games/geiger.js"></script>
+<script src="js/games/centrale.js"></script>
+<script src="js/games/barrieres.js"></script>
+<script src="js/games/tsunami.js"></script>
+<script src="js/games/mix.js"></script>
+<script src="js/games/dechets.js"></script>
+<script src="js/games/quiz.js"></script>
+<script src="js/main.js"></script>
+<script src="js/narration.js"></script>
+<script src="js/voice.js"></script>
+</body>
+</html>
