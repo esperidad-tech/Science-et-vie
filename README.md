@@ -11,4 +11,5 @@ pour Naïm et Alicia.
 
 Chaque thème vit dans son propre dossier ; la page d'accueil (`index.html`) les liste.
 Chaque thème a aussi un studio d'enregistrement (`<thème>/studio.html`) pour lire les textes avec sa propre voix.
-Le site est publié avec GitHub Pages depuis la branche `main`, dossier racine.
+Le site est en ligne sur https://esperidad-tech.github.io/Science-et-vie/ : GitHub Pages le publie depuis la branche `gh-pages`,
+copie exacte de `main`. Après chaque modification, pousser les deux : `git push origin main main:gh-pages`.
