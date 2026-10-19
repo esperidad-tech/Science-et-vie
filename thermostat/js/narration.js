@@ -100,7 +100,17 @@
   ];
 
   /* Enregistrements de la voix du conteur : audio/<id>.mp3 */
-  const AUDIO = {};
+  const AUDIO = {
+    debut: 'audio/debut.mp3',
+    serre: 'audio/serre.mp3',
+    cycle: 'audio/cycle.mp3',
+    reglage: 'audio/reglage.mp3',
+    plaques: 'audio/plaques.mp3',
+    geographie: 'audio/geographie.mp3',
+    boule: 'audio/boule.mp3',
+    venus: 'audio/venus.mp3',
+    aujourdhui: 'audio/aujourdhui.mp3',
+  };
 
   window.RM = window.RM || {};
   window.RM.narration = {
