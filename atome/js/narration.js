@@ -123,7 +123,19 @@
   ];
 
   /* Enregistrements de la voix du conteur : audio/<id>.mp3 */
-  const AUDIO = {};
+  const AUDIO = {
+    debut: 'audio/debut.mp3',
+    origines: 'audio/origines.mp3',
+    bombe: 'audio/bombe.mp3',
+    centrale: 'audio/centrale.mp3',
+    tchernobyl: 'audio/tchernobyl.mp3',
+    fukushima: 'audio/fukushima.mp3',
+    oublies: 'audio/oublies.mp3',
+    france: 'audio/france.mp3',
+    dechets: 'audio/dechets.mp3',
+    guerre: 'audio/guerre.mp3',
+    danger: 'audio/danger.mp3',
+  };
 
   window.RM = window.RM || {};
   window.RM.narration = {
