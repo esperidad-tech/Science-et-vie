@@ -129,8 +129,10 @@
     },
   ];
 
-  /* Enregistrements de la voix du conteur : audio/<id>.mp3 */
+  /* Enregistrements de la voix du conteur (Romain), un fichier par chapitre : audio/<id>.mp3.
+     Fichiers du studio passés en mono, silences coupés, volume égalisé. */
   const AUDIO = {};
+  CHAPITRES.forEach((c) => { AUDIO[c.id] = 'audio/' + c.id + '.mp3'; });
 
   window.RM = window.RM || {};
   window.RM.narration = {
