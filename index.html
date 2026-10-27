@@ -155,10 +155,22 @@
   @media (prefers-reduced-motion: reduce) {
     .logo, .go::after, a.theme { transition: none; }
   }
+  .home-projects {
+    display: inline-block;
+    margin-bottom: 1.75rem;
+    padding: 0.35rem 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+  .home-projects:hover { color: var(--fg); border-color: currentColor; }
 </style>
 </head>
 <body>
 <main>
+  <a class="home-projects" href="https://esperidad-tech.github.io/">← Tous mes projets</a>
   <h1>Science et vie</h1>
   <p class="intro">Des vidéos de science transformées en jeux à explorer du bout des doigts.</p>
   <div class="kids" aria-label="Pour Naïm et Alicia">
