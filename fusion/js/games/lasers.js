@@ -24,7 +24,7 @@
     ],
     fin: 'Le 5 décembre 2022 : la cible rend plus d’énergie qu’elle n’en reçoit !',
     finStatut: 'Record : 8,6 MJ (7 avril 2025). 11 réussites de décembre 2022 à juin 2026.',
-    bravo: 'Bravo, Naïm !',
+    bravo: '{bravo}',
   };
   /* Les mêmes énergies, en mégajoules : elles donnent la longueur des barres */
   const MJ = [2.05, 3.15, 300];

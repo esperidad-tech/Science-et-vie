@@ -148,24 +148,40 @@
     });
   }
 
-  /* ---------- Naïm et Alicia ---------- */
+  /* ---------- Les joueurs, guides des mini-jeux ----------
+     Qui joue sur ce site : js/site.js (window.RM.site.joueurs et .adultes).
+     Sur l'accueil, chacun touche son prénom : la page reçoit ?joueur=<prénom>,
+     et ce joueur guide alors tous les mini-jeux (le quiz le coche d'avance). */
   const KIDS = window.RM.kids;
-  const TURN = {
-    naim: ['À toi, Naïm !', 'Bravo, Naïm !'],
-    alicia: ['À toi, Alicia !', 'Bravo, Alicia !'],
-    siham: ['À toi, Siham !', 'Bravo, Siham !'],
-    both: ['À vous deux !', 'Bravo à vous deux !'],
-    all: ['À vous trois !', 'Bravo à vous trois !'],
-  };
-  /* who : 'naim', 'alicia', 'siham', 'both' (les deux enfants), 'all' (les trois), ou une liste : 'naim siham' */
+  const SITE = window.RM.site || {};
+  const JOUEURS = SITE.joueurs || ['naim', 'alicia'];
+  const ADULTES = SITE.adultes || ['siham'];
+  const NOMBRES = ['', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six'];
+  const nameOf = (k) => (KIDS && KIDS.name(k)) || k;
+  let CHOISI = null;
+  try {
+    const j = new URLSearchParams(window.location.search).get('joueur');
+    if (j && JOUEURS.indexOf(j) >= 0) CHOISI = j;
+  } catch (e) { /* rien */ }
+  window.RM.joueur = CHOISI;
+
+  /* who : un prénom ('lya'), 'both' (les enfants du site), 'all' (enfants et adultes),
+     ou une liste : 'naim siham' */
   function whoList(who) {
-    if (who === 'both') return ['naim', 'alicia'];
-    if (who === 'all') return ['naim', 'alicia', 'siham'];
+    if (who === 'both') return JOUEURS.slice();
+    if (who === 'all') return JOUEURS.concat(ADULTES);
     return String(who || '').split(/\s+/).filter(Boolean);
   }
   function turnFor(who) {
-    if (TURN[who]) return TURN[who];
-    return whoList(who).length >= 3 ? TURN.all : TURN.both;
+    const l = whoList(who);
+    if (l.length === 1) return ['À toi, ' + nameOf(l[0]) + ' !', 'Bravo, ' + nameOf(l[0]) + ' !'];
+    const n = NOMBRES[l.length] || String(l.length);
+    return ['À vous ' + n + ' !', 'Bravo à vous ' + n + ' !'];
+  }
+  /* les textes des jeux peuvent contenir {aToi} et {bravo} : on y met les bons prénoms */
+  function expand(text, who) {
+    const t = turnFor(who);
+    return String(text).replace(/\{aToi\}/g, t[0]).replace(/\{bravo\}/g, t[1]);
   }
   function faces(who, expr) {
     if (!KIDS) return '';
@@ -178,14 +194,25 @@
       g.dataset.who = who;
       const n = whoList(who).length;
       g.classList.toggle('guide--both', n === 2);
-      g.classList.toggle('guide--trio', n >= 3);
+      g.classList.toggle('guide--trio', n === 3);
+      g.classList.toggle('guide--quad', n >= 4);
     }
     const w = g.dataset.who;
     g.querySelector('.guide-faces').innerHTML = faces(w, expr || 'smile');
     /* sans texte fourni : on garde l'actuel, sauf quand on change de joueur */
     const turnEl = g.querySelector('.guide-turn');
-    if (turn) turnEl.textContent = turn;
-    else if (who || !turnEl.textContent) turnEl.textContent = turnFor(w)[0];
+    if (turn) turnEl.textContent = fr(expand(turn, w));
+    else if (who || !turnEl.textContent) turnEl.textContent = fr(turnFor(w)[0]);
+  }
+  /* le joueur choisi sur l'accueil guide tous les jeux ; le quiz garde son propre choix */
+  if (CHOISI) {
+    document.querySelectorAll('.game[data-guide]').forEach((fig) => {
+      if (fig.dataset.game !== 'quiz') fig.dataset.guide = CHOISI;
+    });
+    /* et le lien vers l'accueil ramène à la liste de ses thèmes */
+    document.querySelectorAll('a[data-accueil]').forEach((a) => {
+      a.href = a.getAttribute('href').split('#')[0] + '#' + CHOISI;
+    });
   }
   document.querySelectorAll('.game[data-guide]').forEach((fig) => {
     const hint = fig.querySelector('.game-hint');
@@ -200,7 +227,9 @@
     setGuide(fig, who, 'smile');
   });
   document.querySelectorAll('[data-kids]').forEach((box) => {
-    box.innerHTML = KIDS ? box.dataset.kids.split(' ').map((n) => `<span class="guide-face">${KIDS.svg(n, { expr: 'hero' })}</span>`).join('') : '';
+    const list = whoList(box.dataset.kids);
+    box.classList.toggle('is-trio', list.length >= 3);
+    box.innerHTML = KIDS ? list.map((n) => `<span class="guide-face">${KIDS.svg(n, { expr: 'hero' })}</span>`).join('') : '';
   });
 
   /* ---------- Mini-jeux ---------- */
@@ -298,7 +327,7 @@
       console.error('Jeu « ' + name + ' » :', err);
       if (stage) stage.insertAdjacentHTML('beforeend', '<p class="game-error">Ce jeu n’a pas pu démarrer. Recharge la page pour réessayer.</p>');
     }
-    /* Naïm ou Alicia s'émerveille quand on touche la scène */
+    /* le guide s'émerveille quand on touche la scène */
     if (fig.dataset.guide && name !== 'quiz' && stage) {
       let wowTimer = 0;
       stage.addEventListener('pointerdown', () => {

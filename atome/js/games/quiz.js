@@ -1,17 +1,15 @@
-/* Le quiz final : on choisit qui joue (Naïm, Alicia, Siham, seul ou à plusieurs),
+/* Le quiz final : on choisit qui joue (les enfants du site et Siham, seul ou à plusieurs),
    puis chacun répond à son tour. Les enfants piochent dans les questions « enfants »,
    Siham dans les questions « adultes ». Après chaque réponse, une explication ;
    à la fin, un insigne en forme de galet pour chaque joueur.
-   Les questions et les insignes du thème sont dans js/quiz-data.js (window.RM.quizData). */
+   Les joueurs viennent de js/site.js (window.RM.site), les questions et les insignes
+   du thème de js/quiz-data.js (window.RM.quizData). */
 (function () {
   'use strict';
   const { lib } = window.RM;
 
-  const PLAYERS = ['naim', 'alicia', 'siham'];
-  const ADULTS = { siham: true };
-  /* nombre de questions par joueur selon le nombre de joueurs */
-  const PER_PLAYER = { 1: 10, 2: 5, 3: 4 };
   const NUM = ['zéro', 'une', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze'];
+  const GROUPE = ['', '', 'deux', 'trois', 'quatre', 'cinq', 'six'];
 
   function shuffle(arr) {
     const a = arr.slice();
@@ -31,6 +29,12 @@
 
   window.RM.games.quiz = function (api) {
     const stage = api.stage;
+    const SITE = window.RM.site || {};
+    const PLAYERS = (SITE.joueurs || ['naim', 'alicia']).concat(SITE.adultes || ['siham']);
+    const ADULTS = {};
+    (SITE.adultes || ['siham']).forEach((k) => { ADULTS[k] = true; });
+    /* nombre de questions par joueur selon le nombre de joueurs */
+    const PER_PLAYER = SITE.parJoueur || { 1: 10, 2: 5, 3: 4, 4: 3 };
     const DATA = window.RM.quizData || {};
     const KID_Q = DATA.enfants || [];
     const ADULT_Q = DATA.adultes && DATA.adultes.length ? DATA.adultes : KID_Q;
@@ -80,6 +84,9 @@
       .game[data-game="quiz"] .qz-next[disabled] { opacity: 0.4; cursor: default; }
 
       .game[data-game="quiz"] .qz-who { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+      .game[data-game="quiz"] .qz-who.is-duo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .game[data-game="quiz"] .qz-who.is-quad { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .game[data-game="quiz"] .qz-who.is-quad .qz-face { width: min(64px, 70%); }
       .game[data-game="quiz"] .qz-pick {
         position: relative; display: grid; justify-items: center; align-content: start; gap: 6px;
         width: 100%; min-width: 0; padding: 16px 6px 12px; border: 0; border-radius: 22px 26px 23px 25px;
@@ -110,6 +117,7 @@
       .game[data-game="quiz"] .qz-end { display: grid; gap: 1.2rem; text-align: center; padding-block: 0.3rem; }
       .game[data-game="quiz"] .qz-results { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); }
       .game[data-game="quiz"] .qz-results.is-trio { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+      .game[data-game="quiz"] .qz-results.is-quad { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 0.8rem; }
       .game[data-game="quiz"] .qz-res { display: grid; gap: 0.6rem; justify-items: center; align-content: start; min-width: 0; }
       .game[data-game="quiz"] .qz-res .qz-face { width: 64px; margin-bottom: -22px; position: relative; z-index: 1; }
       .game[data-game="quiz"] .is-trio .qz-res .qz-face { width: 50px; margin-bottom: -18px; }
@@ -142,7 +150,7 @@
       }
     `);
 
-    let players = [];   /* ex. ['naim'], ['naim', 'siham'] ou ['naim', 'alicia', 'siham'] */
+    let players = [];   /* ex. ['lya'], ['lya', 'siham'] ou ['naim', 'alicia', 'eline', 'siham'] */
     let order = [];     /* [{ k, item }] : à qui est la question, et laquelle */
     let idx = 0;
     let score = {};
@@ -155,11 +163,11 @@
       if (text != null) e.textContent = lib.fr(text);
       return e;
     }
-    const together = (n) => (n >= 3 ? 'À vous trois' : 'À vous deux');
+    const together = (n) => 'À vous ' + (GROUPE[n] || n);
 
     function describe(sel) {
       const n = sel.length;
-      if (!n) return 'Touchez au moins une photo.';
+      if (!n) return 'Touchez au moins un joueur.';
       const per = PER_PLAYER[n];
       if (n === 1) {
         const k = sel[0];
@@ -174,8 +182,8 @@
       stage.textContent = '';
       chosen = new Set();
       stage.appendChild(el('h3', 'qz-q', 'Qui joue ?'));
-      stage.appendChild(el('p', 'qz-sub', 'Touchez la photo de chaque joueur, puis lancez la partie.'));
-      const box = el('div', 'qz-who');
+      stage.appendChild(el('p', 'qz-sub', 'Touchez chaque joueur, puis lancez la partie.'));
+      const box = el('div', 'qz-who' + (PLAYERS.length === 2 || PLAYERS.length === 4 ? (PLAYERS.length === 4 ? ' is-quad' : ' is-duo') : ''));
       const info = el('p', 'qz-info', describe([]));
       info.setAttribute('aria-live', 'polite');
       const go = el('button', 'chip qz-next', 'C’est parti !');
@@ -216,6 +224,15 @@
       stage.append(box, info, go);
       api.guide('all', 'smile', 'Qui joue ?');
       api.hint('Choisissez qui joue.');
+      /* le joueur choisi sur l'accueil est déjà coché */
+      const me = window.RM.joueur;
+      if (me && PLAYERS.indexOf(me) >= 0) {
+        chosen.add(me);
+        const b = box.querySelector(`[data-player="${me}"]`);
+        b.setAttribute('aria-pressed', 'true');
+        b.querySelector('.qz-face').innerHTML = face(me, 'laugh');
+        refresh();
+      }
     }
 
     function start(p) {
@@ -327,7 +344,7 @@
       stage.textContent = '';
       const n = players.length;
       const box = el('div', 'qz-end');
-      const res = el('div', 'qz-results' + (n >= 3 ? ' is-trio' : ''));
+      const res = el('div', 'qz-results' + (n >= 3 ? ' is-trio' : '') + (n >= 4 ? ' is-quad' : ''));
       players.forEach((k) => {
         const ratio = asked[k] ? score[k] / asked[k] : 0;
         const badge = BADGES.find((b) => ratio >= b.min) || BADGES[BADGES.length - 1];
@@ -350,7 +367,7 @@
       stage.appendChild(box);
       api.status('');
       api.done(`${total} bonne${total > 1 ? 's' : ''} réponse${total > 1 ? 's' : ''} sur ${order.length}.`, 'Pour rejouer, touche Recommencer.');
-      if (n > 1) api.guide(players.join(' '), 'laugh', `Bravo ${n >= 3 ? 'à vous trois' : 'à vous deux'} !`);
+      if (n > 1) api.guide(players.join(' '), 'laugh', `Bravo à vous ${GROUPE[n] || n} !`);
       else api.guide(players[0], 'laugh', `Bravo, ${NAME(players[0])} !`);
       scrollIntoViewIfNeeded();
     }

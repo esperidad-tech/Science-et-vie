@@ -26,7 +26,7 @@
     energie: 'énergie',
     fin: 'À poids égal : près de 4 millions de fois plus d’énergie que le charbon ou le pétrole !',
     finStatut: '33 mg de deutérium dans 1 litre d’eau de mer',
-    bravo: 'Bravo, Naïm !',
+    bravo: '{bravo}',
   };
 
   const GOAL = 5;              /* fusions à réussir */

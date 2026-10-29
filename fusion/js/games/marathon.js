@@ -30,7 +30,7 @@
     fin: 'Plus de 1 337\u00A0s : tu bats le record de WEST !',
     finStatut: 'Continue jusqu’à 1 800\u00A0s : l’objectif de Wendelstein 7-X, 30\u00A0minutes.',
     bonus: '1 800\u00A0s : l’objectif de Wendelstein 7-X, 30\u00A0minutes. Champion !',
-    bravo: 'Bravo, Alicia !',
+    bravo: '{bravo}',
   };
 
   const CSS = `

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Studio du conteur</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#140F2E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&display=swap">
+<style>
+  /* Studio : une pile de fiches de lecture, une par chapitre, comme un pupitre de doublage. */
+  :root {
+    --bg: #140F2E;
+    --fg: #F2EEF9;
+    --muted: #B9B0DA;
+    --panel: #1F1946;
+    --panel-2: #29215A;
+    --line: rgba(242, 238, 249, 0.16);
+    --accent: #FFC46B;
+    --rec: #FF5A6E;
+    --ok: #8BD86A;
+    --font-display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+    --font-text: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: dark;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-text);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem max(16px, env(safe-area-inset-right, 0px)) 4rem max(16px, env(safe-area-inset-left, 0px));
+  }
+  h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-variation-settings: "SOFT" 100, "opsz" 144;
+    font-size: clamp(2.6rem, 11vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .intro { margin: 0.8rem 0 0; color: var(--muted); max-width: 34rem; }
+  .tips { margin: 1rem 0 0; padding-left: 1.2em; color: var(--muted); max-width: 34rem; }
+  .tips li + li { margin-top: 0.3em; }
+  .notice {
+    margin: 1.2rem 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(255, 90, 110, 0.14);
+    box-shadow: inset 0 0 0 1px rgba(255, 90, 110, 0.5);
+  }
+  .count {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    margin: 1.4rem 0 1rem;
+    padding: 10px 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+  }
+  .count-bar { flex: 1; height: 8px; border-radius: 5px; background: var(--panel); overflow: hidden; }
+  .count-bar span { display: block; height: 100%; width: 0; background: var(--ok); transition: width 0.4s; }
+  .cards { display: grid; gap: 16px; list-style: none; margin: 0; padding: 0; }
+  .card {
+    padding: 18px 18px 16px;
+    border-radius: 18px 22px 20px 18px;
+    background: var(--panel);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .card.is-recording { box-shadow: inset 0 0 0 2px var(--rec); }
+  .card.is-done { box-shadow: inset 0 0 0 1px rgba(139, 216, 106, 0.55); }
+  .card-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 0.6rem; }
+  .card-num { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 0.9375rem; flex: none; }
+  .card h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-variation-settings: "SOFT" 100, "opsz" 36;
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+  .card-time { margin-left: auto; color: var(--muted); font-size: 0.875rem; flex: none; }
+  .script { margin: 0; font-size: 1.1875rem; line-height: 1.7; }
+  .script p { margin: 0 0 0.7em; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 0.6rem; }
+  button, .dl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 46px;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 14px 18px 15px 17px;
+    background: var(--panel-2);
+    color: var(--fg);
+    font: 700 1rem/1 var(--font-text);
+    text-decoration: none;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  button:disabled { opacity: 0.4; cursor: default; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .rec { background: var(--rec); color: #fff; }
+  .rec::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+  .stop { background: #fff; color: #140F2E; }
+  .stop::before { content: ""; width: 12px; height: 12px; border-radius: 2px; background: var(--rec); }
+  .meter { display: none; align-items: center; gap: 10px; flex: 1 1 140px; min-width: 120px; }
+  .is-recording .meter { display: flex; }
+  .meter-bar { flex: 1; height: 10px; border-radius: 6px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+  .meter-bar span { display: block; height: 100%; width: 0; background: var(--ok); transition: width 0.06s linear; }
+  .meter-time { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--rec); }
+  .take { display: none; width: 100%; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .is-done .take { display: flex; }
+  .take audio { width: 100%; height: 40px; }
+  .send {
+    margin-top: 2rem;
+    padding: 18px;
+    border-radius: 18px 22px 20px 18px;
+    background: var(--panel);
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .send h2 { margin: 0 0 0.4rem; font-family: var(--font-display); font-weight: 800; font-variation-settings: "SOFT" 100; font-size: 1.35rem; }
+  .send p { margin: 0 0 0.8rem; color: var(--muted); }
+  .share { background: var(--accent); color: #140F2E; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Studio du conteur</h1>
+  <p class="intro">Les quatre lectures de « La Terre a-t-elle de la fièvre ? » (version des petits), à enregistrer avec ta voix. Une fois installées, Naïm, Alicia et Eline t’entendront en touchant « Écouter l’histoire ».</p>
+  <ul class="tips">
+    <li>Une pièce calme et feutrée, le téléphone à une vingtaine de centimètres.</li>
+    <li>Attends une seconde après avoir touché Enregistrer, puis lis tranquillement.</li>
+    <li>Tu peux refaire une lecture autant de fois que tu veux : seule la dernière prise compte.</li>
+  </ul>
+  <p class="notice" id="notice" hidden></p>
+
+  <div class="count" aria-live="polite">
+    <span id="count-text">0 lecture</span>
+    <span class="count-bar" aria-hidden="true"><span id="count-bar"></span></span>
+  </div>
+
+  <ol class="cards" id="cards"></ol>
+
+  <section class="send">
+    <h2>Quand c’est fini</h2>
+    <p id="send-text">Télécharge chaque lecture avec son bouton, puis envoie les fichiers à Claude dans la conversation. Il règle le volume, coupe les silences et installe les voix dans le site.</p>
+    <button type="button" class="share" id="share" hidden>Partager les lectures</button>
+  </section>
+</main>
+
+<script src="js/narration.js"></script>
+<script>
+(function () {
+  'use strict';
+  const CH = (window.RM && window.RM.narration && window.RM.narration.chapitres) || [];
+  const cardsEl = document.getElementById('cards');
+  const notice = document.getElementById('notice');
+  const shareBtn = document.getElementById('share');
+  const takes = {};           /* id -> Blob */
+  let busy = null;            /* enregistrement en cours */
+  let stream = null;
+
+  /* ---------- Stockage local des prises (IndexedDB) ---------- */
+  let dbp = null;
+  function db() {
+    if (dbp) return dbp;
+    dbp = new Promise((resolve) => {
+      try {
+        const r = indexedDB.open('thermostat-petits-studio', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('takes');
+        r.onsuccess = () => resolve(r.result);
+        r.onerror = () => resolve(null);
+      } catch (e) { resolve(null); }
+    });
+    return dbp;
+  }
+  async function saveTake(id, blob) {
+    const d = await db();
+    if (!d) return;
+    try { d.transaction('takes', 'readwrite').objectStore('takes').put(blob, id); } catch (e) { /* rien */ }
+  }
+  async function loadTakes() {
+    const d = await db();
+    if (!d) return;
+    await Promise.all(CH.map((c) => new Promise((resolve) => {
+      try {
+        const r = d.transaction('takes').objectStore('takes').get(c.id);
+        r.onsuccess = () => { if (r.result) takes[c.id] = r.result; resolve(); };
+        r.onerror = () => resolve();
+      } catch (e) { resolve(); }
+    })));
+  }
+
+  /* ---------- Outils ---------- */
+  const pad = (n) => String(n).padStart(2, '0');
+  function words(t) { return t.split(/\s+/).filter(Boolean).length; }
+  function ext(type) {
+    if (/mp4|m4a|aac/.test(type)) return 'm4a';
+    if (/ogg/.test(type)) return 'ogg';
+    if (/wav/.test(type)) return 'wav';
+    return 'webm';
+  }
+  function fileName(i, id, type) { return `${pad(i + 1)}-${id}.${ext(type)}`; }
+  function pickMime() {
+    if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) return '';
+    return ['audio/mp4;codecs=mp4a.40.2', 'audio/mp4', 'audio/webm;codecs=opus', 'audio/webm', 'audio/ogg;codecs=opus']
+      .find((t) => MediaRecorder.isTypeSupported(t)) || '';
+  }
+  function say(text) { notice.textContent = text; notice.hidden = !text; }
+
+  const canRecord = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+  if (!canRecord) {
+    say('Le micro n’est pas disponible sur cette page. Tu peux lire les textes ci-dessous et t’enregistrer avec l’application Dictaphone de ton téléphone, une lecture par fichier, dans l’ordre.');
+  }
+
+  /* ---------- Fiches ---------- */
+  CH.forEach((c, i) => {
+    const li = document.createElement('li');
+    li.className = 'card';
+    li.id = 'fiche-' + c.id;
+    const secs = Math.round(words(c.texte.join(' ')) / 2.4 / 5) * 5;
+    li.innerHTML = `
+      <div class="card-head"><span class="card-num">${i + 1}/${CH.length}</span><h2></h2><span class="card-time">environ ${secs} s</span></div>
+      <div class="script"></div>
+      <div class="controls">
+        <button type="button" class="rec" data-role="rec">Enregistrer</button>
+        <div class="meter" aria-hidden="true"><span class="meter-bar"><span></span></span><span class="meter-time">0:00</span></div>
+        <div class="take">
+          <audio controls preload="metadata"></audio>
+          <a class="dl" download>Télécharger</a>
+        </div>
+      </div>`;
+    li.querySelector('h2').textContent = c.titre;
+    const script = li.querySelector('.script');
+    c.texte.forEach((t) => {
+      const p = document.createElement('p');
+      p.textContent = t.replace(/ ([:;!?»])/g, ' $1');
+      script.appendChild(p);
+    });
+    const btn = li.querySelector('[data-role=rec]');
+    if (!canRecord) btn.hidden = true;
+    btn.addEventListener('click', () => (busy && busy.id === c.id ? stop() : start(c, i, li)));
+    cardsEl.appendChild(li);
+  });
+
+  function showTake(c, i) {
+    const li = document.getElementById('fiche-' + c.id);
+    const blob = takes[c.id];
+    li.classList.toggle('is-done', !!blob);
+    const btn = li.querySelector('[data-role=rec]');
+    btn.textContent = blob ? 'Refaire' : 'Enregistrer';
+    if (!blob) return;
+    const url = URL.createObjectURL(blob);
+    const audio = li.querySelector('audio');
+    if (audio.dataset.url) URL.revokeObjectURL(audio.dataset.url);
+    audio.src = url;
+    audio.dataset.url = url;
+    const a = li.querySelector('.dl');
+    a.href = url;
+    a.download = fileName(i, c.id, blob.type || '');
+  }
+
+  function updateCount() {
+    const n = CH.filter((c) => takes[c.id]).length;
+    document.getElementById('count-text').textContent = `${n} lecture${n > 1 ? 's' : ''} sur ${CH.length}`;
+    document.getElementById('count-bar').style.width = (n / CH.length * 100) + '%';
+    const files = CH.map((c, i) => takes[c.id] && new File([takes[c.id]], fileName(i, c.id, takes[c.id].type || ''), { type: takes[c.id].type || 'audio/mp4' })).filter(Boolean);
+    let canShare = false;
+    try { canShare = files.length > 0 && !!navigator.canShare && navigator.canShare({ files }); } catch (e) { canShare = false; }
+    shareBtn.hidden = !canShare;
+    shareBtn.textContent = files.length === CH.length ? `Partager les ${CH.length} lectures` : `Partager les ${files.length} lecture${files.length > 1 ? 's' : ''}`;
+    shareBtn.onclick = () => navigator.share({ files, title: 'La Terre a-t-elle de la fièvre ? Lectures' }).catch(() => {});
+  }
+
+  /* ---------- Enregistrement ---------- */
+  async function start(c, i, li) {
+    if (busy) return;
+    say('');
+    try {
+      if (!stream || !stream.active) {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
+      }
+    } catch (e) {
+      say('Le micro est refusé. Autorise le micro pour ce site dans les réglages du navigateur, puis recharge la page.');
+      return;
+    }
+    const mime = pickMime();
+    let rec;
+    try {
+      rec = mime ? new MediaRecorder(stream, { mimeType: mime, audioBitsPerSecond: 128000 }) : new MediaRecorder(stream);
+    } catch (e) {
+      rec = new MediaRecorder(stream);
+    }
+    const chunks = [];
+    rec.ondataavailable = (ev) => { if (ev.data && ev.data.size) chunks.push(ev.data); };
+    rec.onstop = async () => {
+      const blob = new Blob(chunks, { type: rec.mimeType || mime || 'audio/webm' });
+      cleanup();
+      if (blob.size < 2000) { say('L’enregistrement est vide. Vérifie que le micro capte bien ta voix, puis recommence.'); return; }
+      takes[c.id] = blob;
+      await saveTake(c.id, blob);
+      showTake(c, i);
+      updateCount();
+    };
+
+    /* vu-mètre */
+    let ac = null, raf = 0;
+    const bar = li.querySelector('.meter-bar span');
+    const timeEl = li.querySelector('.meter-time');
+    const t0 = performance.now();
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      ac = new AC();
+      const src = ac.createMediaStreamSource(stream);
+      const an = ac.createAnalyser();
+      an.fftSize = 1024;
+      src.connect(an);
+      const data = new Uint8Array(an.fftSize);
+      const tick = () => {
+        an.getByteTimeDomainData(data);
+        let peak = 0;
+        for (let k = 0; k < data.length; k++) peak = Math.max(peak, Math.abs(data[k] - 128));
+        bar.style.width = Math.min(100, peak / 128 * 140) + '%';
+        bar.style.background = peak > 118 ? 'var(--rec)' : 'var(--ok)';
+        const s = Math.floor((performance.now() - t0) / 1000);
+        timeEl.textContent = `${Math.floor(s / 60)}:${pad(s % 60)}`;
+        raf = requestAnimationFrame(tick);
+      };
+      tick();
+    } catch (e) { /* pas de vu-mètre */ }
+
+    function cleanup() {
+      cancelAnimationFrame(raf);
+      if (ac) ac.close().catch(() => {});
+      li.classList.remove('is-recording');
+      document.querySelectorAll('[data-role=rec]').forEach((b) => { b.disabled = false; });
+      const btn = li.querySelector('[data-role=rec]');
+      btn.className = 'rec';
+      btn.textContent = takes[c.id] ? 'Refaire' : 'Enregistrer';
+      busy = null;
+    }
+
+    busy = { id: c.id, rec };
+    li.classList.add('is-recording');
+    document.querySelectorAll('[data-role=rec]').forEach((b) => { if (!li.contains(b)) b.disabled = true; });
+    const btn = li.querySelector('[data-role=rec]');
+    btn.className = 'stop';
+    btn.textContent = 'Arrêter';
+    rec.start(1000);
+  }
+
+  function stop() {
+    if (busy && busy.rec.state !== 'inactive') busy.rec.stop();
+  }
+
+  function release() {
+    stop();
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
+  }
+  window.addEventListener('pagehide', release);
+
+  loadTakes().then(() => {
+    CH.forEach((c, i) => showTake(c, i));
+    updateCount();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /* Textes lus à voix haute, chapitre par chapitre (un mini-soleil pour nous sauver ?).
    Les mêmes que sur l'écran, écrits pour être dits : les nombres en toutes lettres,
-   et un mot d'accueil pour Naïm et Alicia. Ils servent de script au studio d'enregistrement
+   et un mot d'accueil pour Lya et Ertan. Ils servent de script au studio d'enregistrement
    et à la voix du téléphone tant qu'il n'y a pas d'enregistrement. */
 (function () {
   'use strict';
@@ -10,7 +10,7 @@
       id: 'debut',
       titre: 'Introduction',
       texte: [
-        'Salut Naïm, salut Alicia ! Aujourd’hui, une grande question : peut-on fabriquer un mini-soleil pour nous sauver ?',
+        'Salut Lya, salut Ertan ! Aujourd’hui, une grande question : peut-on fabriquer un mini-soleil pour nous sauver ?',
         'Fabriquer sur Terre le feu des étoiles, avec un carburant tiré de l’eau de mer et sans C O deux : c’est le grand pari de la fusion.',
         'Au cœur du Soleil, de minuscules noyaux se collent et libèrent une énergie fabuleuse. Depuis plus de soixante-dix ans, des savants du monde entier essaient de rallumer ce feu dans des machines. Ils ont battu des records incroyables, mais aucune centrale à fusion n’existe encore. Alors, promesse ou solution ?',
         'Pour commencer, serrez le cœur du Soleil pour l’allumer !',
@@ -124,7 +124,7 @@
         'Et le climat ? La fusion ne rejette pas de C O deux, le gaz qui réchauffe la planète. Mais selon les académies des sciences allemandes, elle arrivera trop tard pour aider avant deux mille quarante-cinq ou deux mille cinquante. Pour protéger la planète dès maintenant, il faut surtout utiliser les énergies bas carbone qui existent déjà : le soleil, le vent, l’eau des barrages et les centrales nucléaires d’aujourd’hui.',
         'Plus tard dans le siècle, quand vous serez grands, la fusion pourrait devenir une grande source d’électricité, si les chercheurs arrivent à la rendre fiable et pas trop chère. C’est une belle promesse, pas encore une solution. Et c’est peut-être l’un de vous qui trouvera la clé !',
         'Le savais-tu ? En deux mille vingt-six, soixante et onze pour cent des entreprises de fusion pensent que leur première centrale donnera de l’électricité dans les années deux mille trente. Les académies des sciences, elles, parlent plutôt de vingt à vingt-cinq ans d’attente. Qui aura raison ?',
-        'Et maintenant, Naïm, Alicia et Siham, place au quiz !',
+        'Et maintenant, Lya, Ertan et Siham, place au quiz !',
       ],
     },
   ];

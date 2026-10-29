@@ -1,6 +1,6 @@
 /* Textes lus à voix haute, chapitre par chapitre (la force de l'atome).
    Les mêmes que sur l'écran, écrits pour être dits : les nombres en toutes lettres,
-   et un mot d'accueil pour Naïm et Alicia. Ils servent de script au studio d'enregistrement
+   et un mot d'accueil pour Lya et Ertan. Ils servent de script au studio d'enregistrement
    et à la voix du téléphone tant qu'il n'y a pas d'enregistrement. */
 (function () {
   'use strict';
@@ -10,7 +10,7 @@
       id: 'debut',
       titre: 'Introduction',
       texte: [
-        'Salut Naïm, salut Alicia ! Aujourd’hui, une grande question : le nucléaire, c’est dangereux ?',
+        'Salut Lya, salut Ertan ! Aujourd’hui, une grande question : le nucléaire, c’est dangereux ?',
         'On en a eu très peur. Mais que disent vraiment les chiffres ? On mène l’enquête, de la bombe aux centrales.',
         'Au cœur de chaque atome se cache une énergie fabuleuse. Elle a d’abord servi à fabriquer des bombes, et c’est pour ça qu’elle fait si peur. Pourtant, depuis plus de soixante-dix ans, elle éclaire des villes entières en rejetant très peu de C O deux, et les chiffres montrent qu’elle fait partie des façons les plus sûres de produire de l’électricité.',
         'Pour commencer, essayez de piloter un réacteur !',
@@ -117,7 +117,7 @@
         'Entre mille neuf cent soixante et onze et deux mille neuf, en remplaçant du charbon et du gaz, les centrales nucléaires du monde auraient évité environ un million huit cent mille morts dues à la pollution de l’air, selon deux chercheurs de la NASA. À l’inverse, quand l’Allemagne a fermé une partie de ses centrales après Fukushima, elle a surtout brûlé plus de charbon : selon une étude de deux mille vingt-deux, cette pollution a causé plus de mille cent morts de plus chaque année.',
         'Alors oui : si le monde avait construit plus de centrales nucléaires à la place des centrales à charbon, l’air serait plus sain et le climat se réchaufferait moins. On en a eu plus peur que nécessaire. Ce qui compte, c’est de surveiller la sûreté de très près, de ranger les déchets avec soin, et d’apprendre à construire plus vite et moins cher.',
         'Le savais-tu ? Dans une enquête célèbre de mille neuf cent quatre-vingt-sept, des Américains ont classé le nucléaire comme le plus dangereux de trente risques, devant la voiture. Les experts, eux, le mettaient au vingtième rang, et la voiture au premier !',
-        'Et maintenant, Naïm, Alicia et Siham, place au quiz !',
+        'Et maintenant, Lya, Ertan et Siham, place au quiz !',
       ],
     },
   ];

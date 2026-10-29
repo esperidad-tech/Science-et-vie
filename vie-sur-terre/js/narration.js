@@ -1,6 +1,6 @@
 /* Textes lus à voix haute, chapitre par chapitre.
    Ce sont les mêmes que sur l'écran, écrits pour être dits : les nombres en toutes lettres,
-   et un mot d'accueil pour Naïm et Alicia. Ils servent à la fois de script pour
+   et un mot d'accueil pour Lya et Ertan. Ils servent à la fois de script pour
    l'enregistrement (studio.html) et à la voix du téléphone tant qu'il n'y a pas d'enregistrement. */
 (function () {
   'use strict';
@@ -10,7 +10,7 @@
       id: 'debut',
       titre: 'Introduction',
       texte: [
-        'Salut Naïm, salut Alicia ! Aujourd’hui, une grande question : qui a fabriqué la Terre ?',
+        'Salut Lya, salut Ertan ! Aujourd’hui, une grande question : qui a fabriqué la Terre ?',
         'Des poussières d’étoiles, des éclairs, des volcans, et les êtres vivants eux-mêmes ! Quatre milliards et demi d’années d’histoire, jusqu’aux dinosaures et jusqu’à nous.',
         'Tout commence par un nuage de poussières d’étoiles qui s’agglutinent en une boule de roche brûlante. Comment ces pierres ont-elles fait naître la vie ? Et comment la vie les a-t-elle transformées à son tour ?',
         'Chaque chapitre se joue avec les doigts. Allez, on y va !',
@@ -146,7 +146,7 @@
       texte: [
         'Toute l’histoire en vingt-quatre heures.',
         'Imagine que les quatre milliards et demi d’années de la Terre tiennent en une seule journée. La Terre naît à minuit pile. Fais tourner l’aiguille pour voir à quelle heure arrive chaque événement.',
-        'Et à la fin, un petit quiz vous attend, Naïm, Alicia et Siham. Bonne chance !',
+        'Et à la fin, un petit quiz vous attend, Lya, Ertan et Siham. Bonne chance !',
       ],
     },
   ];

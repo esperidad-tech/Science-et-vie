@@ -15,8 +15,8 @@
     compteur: 'Acides aminés : {n} sur {total}',
     fin: 'Des briques du vivant, fabriquées avec des éclairs !',
     finStatut: 'Ce n’est pas encore la vie, mais certaines de ses pièces peuvent se fabriquer toutes seules : avec de l’eau, des gaz… et de l’électricité.',
-    bravo: 'Bravo, Naïm !',
-    aToi: 'À toi, Naïm !',
+    bravo: '{bravo}',
+    aToi: '{aToi}',
     gaz: 'Gaz',
     eau: 'Eau',
   };

@@ -45,7 +45,7 @@
     recommence: 'On recommence le tir de {annee} : garde le doigt appuyé pour chauffer.',
     fin: '69 MJ, c’est à peu près l’énergie de 2 litres d’essence.',
     finStatut: 'JET : de 1983 à 2023',
-    bravo: 'Bravo, Naïm !',
+    bravo: '{bravo}',
   };
 
   /* Les trois tirs : durée à tenir (s), énergie atteinte (MJ) et zone verte (sur la jauge, de 0 à 1) */

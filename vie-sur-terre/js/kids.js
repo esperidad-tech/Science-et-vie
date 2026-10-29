@@ -1,6 +1,8 @@
-/* Naïm et Alicia : les deux guides du site, dessinés en SVG.
-   Dessins originaux inspirés des enfants (pas de photo en ligne).
-   RM.kids.svg('naim' | 'alicia', { expr: 'smile' | 'wow' | 'laugh' | 'shout', frame: true }) */
+/* Les joueurs, guides des mini-jeux : Lya et Ertan (version 10-12 ans), Eline, Naïm et Alicia
+   (version des petits), et Siham au quiz final.
+   Naïm, Alicia et Siham ont leurs photos (Naïm et Alicia aussi en dessin, pour l'aperçu Claude) ;
+   Lya, Ertan et Eline ont, en attendant leurs photos, un galet de couleur avec leur initiale.
+   RM.kids.svg('lya' | 'naim' | …, { expr: 'smile' | 'wow' | 'laugh' | 'shout' | 'hero', frame: true }) */
 (function () {
   'use strict';
 
@@ -23,6 +25,10 @@
     },
     /* Siham joue seulement au quiz final, toujours en photo */
     siham: { name: 'Siham', bg: '#FFA9C9', bgDeep: '#F27BAA' },
+    /* en attendant leurs photos : un galet de couleur avec l'initiale */
+    lya: { name: 'Lya', bg: '#C9A2FF', bgDeep: '#9466EE', ink: '#2B1260' },
+    ertan: { name: 'Ertan', bg: '#86DCC0', bgDeep: '#3FAE8C', ink: '#0D3A2C' },
+    eline: { name: 'Eline', bg: '#FFD978', bgDeep: '#F2A93B', ink: '#4A2800' },
   };
   const DRAWN = { naim: true, alicia: true };
 
@@ -144,9 +150,29 @@
       + `<img src="${src(file)}" alt="" decoding="async" draggable="false"></span>`;
   }
 
+  /* Galet à l'initiale. Il s'étonne (il se penche) ou rit (avec de petites étincelles). */
+  function sparkle(x, y, r) {
+    const c = r * 0.32;
+    return `<path d="M${x} ${y - r} Q ${x + c} ${y - c} ${x + r} ${y} Q ${x + c} ${y + c} ${x} ${y + r} Q ${x - c} ${y + c} ${x - r} ${y} Q ${x - c} ${y - c} ${x} ${y - r} Z"/>`;
+  }
+  function badge(name, expr) {
+    const k = KIDS[name];
+    const e = expr === 'hero' ? 'smile' : expr;
+    const id = 'kid' + (++uid);
+    const sparks = e === 'laugh' ? `<g fill="#FFFFFF">${sparkle(21, 30, 9)}${sparkle(100, 24, 7)}${sparkle(103, 95, 8)}</g>` : '';
+    return `<svg class="kid kid--badge kid--${name} kid--${e}" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${k.name}">`
+      + `<defs><radialGradient id="${id}g" cx="0.35" cy="0.3" r="0.9"><stop offset="0" stop-color="${k.bg}"/><stop offset="1" stop-color="${k.bgDeep}"/></radialGradient></defs>`
+      + '<g class="kid-pebble">'
+      + `<path d="M60 3 C 92 2 118 26 117 60 C 116 93 92 118 59 117 C 27 116 3 92 4 59 C 5 27 29 4 60 3 Z" fill="url(#${id}g)"/>`
+      + '<path d="M26 40 C 31 27 43 17 58 14" fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="5" stroke-linecap="round"/>'
+      + `<text class="kid-initial" x="60" y="85" text-anchor="middle" fill="${k.ink}">${k.name.charAt(0)}</text>`
+      + '</g>' + sparks + '</svg>';
+  }
+
   function svg(name, opts = {}) {
     const k = KIDS[name];
     if (!k) return '';
+    if (k.ink && !PHOTOS[name]) return badge(name, opts.expr || 'smile');
     if (PHOTOS[name] && (window.RM_KIDS_DRAWN !== true || !DRAWN[name])) return photo(name, opts.expr || 'smile');
     const expr = opts.expr === 'hero' ? 'smile' : (opts.expr || 'smile');
     const frame = opts.frame !== false;
@@ -207,7 +233,7 @@
 
   window.RM = window.RM || {};
   window.RM.kids = {
-    list: ['naim', 'alicia'],
+    list: Object.keys(KIDS),
     name: (n) => (KIDS[n] ? KIDS[n].name : ''),
     color: (n) => (KIDS[n] ? KIDS[n].bg : '#FFFFFF'),
     svg,

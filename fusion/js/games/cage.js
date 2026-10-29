@@ -25,7 +25,7 @@
     reprise: (v) => `On le rallume : tu reprends à ${v} °C.`,
     fin: '150 000 000 °C : assez chaud pour la fusion ! Ta cage d’aimants tient le plasma au centre.',
     finStatut: '1951 : le stellarator — vers 1958 : le premier tokamak.',
-    bravo: 'Bravo, Alicia !',
+    bravo: '{bravo}',
   };
 
   const CSS = `

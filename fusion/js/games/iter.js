@@ -26,7 +26,7 @@
     complet: 'ITER complet : 23 000 tonnes = 3 tours Eiffel',
     fin: '2034 : premiers plasmas — 2036 : pleine puissance magnétique — 2039 : deutérium-tritium',
     finStatut: 'But : 500 MW de fusion pour 50 MW de chauffage',
-    bravo: 'Bravo, Alicia !',
+    bravo: '{bravo}',
   };
 
   const N = 9;
@@ -996,7 +996,7 @@
         }
       }
       if (dust.length > 120) dust.splice(0, dust.length - 120);
-      /* ce que raconte Alicia après chaque module */
+      /* ce que raconte le guide après chaque module */
       const n = S.n;
       S.pending = null;
       if (n === 6) {

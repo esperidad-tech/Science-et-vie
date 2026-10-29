@@ -19,7 +19,7 @@
     statut: (n, total) => `Moments découverts : ${n} sur ${total}`,
     fin: 'Les humains sont arrivés près de 66 millions d’années après le tyrannosaure et le tricératops !',
     finStatut: 'Aucun humain n’a jamais croisé de dinosaure géant.',
-    bravo: 'Bravo, Alicia !',
+    bravo: '{bravo}',
     precedent: 'Précédent',
     suivant: 'Suivant',
     ariaPrecedent: 'Moment précédent',

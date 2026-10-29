@@ -21,7 +21,7 @@
     legende: '4 hydrogène → 1 hélium + lumière',
     fin: 'Chaque seconde, le Soleil transforme 600 millions de tonnes d’hydrogène en hélium.',
     finStatut: 'L’hélium est 0,7 % plus léger : la différence devient lumière.',
-    bravo: 'Bravo à vous deux !',
+    bravo: '{bravo}',
   };
 
   const GOAL = 10;            /* noyaux d'hélium à fabriquer */

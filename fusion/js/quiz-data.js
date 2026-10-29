@@ -1,5 +1,5 @@
 /* Questions du quiz final de ce thème.
-   enfants : pour Naïm et Alicia (8 ans) ; adultes : pour Siham.
+   enfants : pour Lya et Ertan (10 à 12 ans) ; adultes : pour Siham.
    La bonne réponse est toujours la première : le jeu mélange les réponses.
    insignes : selon la part de bonnes réponses.
    Sources : voir /tmp/…/fusion_recherche.md, § 3c (ITER, AIEA, CEA, LLNL, GOV.UK, Leopoldina…). */

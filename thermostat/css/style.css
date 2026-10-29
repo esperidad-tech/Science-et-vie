@@ -897,6 +897,34 @@ html.menu-open { overflow: hidden; }
 .hero-duo-faces .guide-face { width: 104px; }
 .hero-duo-faces .guide-face + .guide-face { margin-left: -14px; }
 
+/* Lya, Ertan et Eline : un galet de couleur avec l'initiale, en attendant leurs photos */
+.kid--badge { overflow: visible; }
+.kid--badge .kid-initial {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+  font-size: 70px;
+}
+.kid--badge .kid-pebble { transform-box: view-box; transform-origin: 50% 55%; }
+.kid--badge.kid--wow .kid-pebble { animation: kid-badge-wow 0.5s cubic-bezier(.2, 1.6, .4, 1) both; }
+.kid--badge.kid--laugh .kid-pebble { animation: kid-badge-laugh 0.6s cubic-bezier(.2, 1.6, .4, 1) both; }
+@keyframes kid-badge-wow { from { transform: scale(0.92); } to { transform: scale(1.04) rotate(-7deg); } }
+@keyframes kid-badge-laugh { 0% { transform: scale(0.9); } 60% { transform: scale(1.08) rotate(5deg); } 100% { transform: scale(1) rotate(3deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .kid--badge .kid-pebble { animation: none !important; }
+}
+
+/* Quatre joueurs (les trois petits et Siham, au quiz) */
+.guide--quad { grid-template-columns: 128px minmax(0, 1fr); }
+.guide--quad .guide-face { width: 44px; }
+.guide--quad .guide-face + .guide-face { margin-left: -16px; }
+
+/* L'ouverture à trois explorateurs */
+.hero-duo:has(.is-trio) { flex-wrap: wrap; }
+.hero-duo-faces.is-trio .guide-face { width: 88px; }
+.hero-duo-faces.is-trio .guide-face + .guide-face { margin-left: -12px; }
+.hero-duo-faces.is-trio .guide-face:nth-child(2) .kid { transform: translateY(-6px) rotate(2deg); }
+
 /* ---------- Thermostat collant ---------- */
 .tb-ribbon--thermo {
   display: grid;
