@@ -222,6 +222,27 @@ cite { font-style: italic; }
 }
 .tb-btn:hover, .toc-close:hover { background: rgba(242, 238, 249, 0.16); }
 
+/* Retour à l'accueil, toujours visible en haut à gauche */
+.tb-home { text-decoration: none; background: rgba(255, 196, 107, 0.2); color: #FFD89A; }
+.tb-home:hover { background: rgba(255, 196, 107, 0.32); }
+.tb-home:focus-visible { outline: 3px solid #FFD89A; outline-offset: 2px; }
+.tb-home svg { stroke-width: 2.6; }
+.tb-home-label { display: none; }
+@media (min-width: 640px) {
+  .tb-home { display: inline-flex; align-items: center; gap: 2px; width: auto; padding: 0 14px 0 8px; font: 700 0.95rem/1 var(--font-text); }
+  .tb-home-label { display: inline; }
+}
+/* … et en grand à la fin de la page */
+.credits-home { margin: 0 0 2.2rem; }
+.next--home::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-left: 2.5px solid currentColor;
+  border-bottom: 2.5px solid currentColor;
+  transform: translateX(3px) rotate(45deg);
+}
+
 .tb-btn svg, .toc-close svg {
   width: 22px;
   height: 22px;
